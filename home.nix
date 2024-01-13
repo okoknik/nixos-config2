@@ -23,8 +23,8 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Ryan Yin";
-    userEmail = "xiaoyin_c@qq.com";
+    userName = "simstuff";
+    userEmail = "oetkenniklas@gmail.com";
   };
 
   # Packages that should be installed to the user profile.
