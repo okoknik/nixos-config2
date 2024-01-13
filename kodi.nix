@@ -38,11 +38,12 @@
   # Enable the X11 windowing system.
    services.xserver = {
 	enable = true;
-	displayManager.kodi.enable = true;
+	desktopManager.kodi.enable = true;
 	displayManager.autoLogin = {
     enable = true;
     user = "kodi";
    };
+};
 
   # Configure keymap in X11
    services.xserver.xkb.layout = "de";
