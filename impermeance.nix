@@ -35,6 +35,9 @@
     directories = [
       "/etc/nixos"
       "/etc/NetworkManager/system-connections"  
+      "etc/bluetooth/input.conf"
+      "etc/bluetooth/main.conf"
+      "etc/bluetooth/network.conf"
    ];
     files = [
       "/etc/machine-id"
