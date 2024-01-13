@@ -2,12 +2,13 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, impermeance, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      impermeance.nixosModule
     ];
   
   nixpkgs.config.allowUnfree = true;
@@ -15,6 +16,35 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # restore empty subvolume for impermeance
+  boot.initrd.postDeviceCommands = pkgs.lib.mkBefore ''
+    mkdir -p /mnt
+
+    mount -o subvol=/ /dev/sda3 /mnt
+
+    btrfs subvolume list -o /mnt/root |
+    cut -f9 -d' ' |
+    while read subvolume; do
+      echo "deleting /$subvolume subvolume..."
+      btrfs subvolume delete "/mnt/$subvolume"
+    done &&
+    echo "deleting /root subvolume..." &&
+    btrfs subvolume delete /mnt/root
+
+    echo "restoring blank /root subvolume..."
+    btrfs subvolume snapshot /mnt/root-blank /mnt/root
+
+    umount /mnt
+  '';
+
+  # impermeance config
+  environment.persistence."/persist" = {
+    directories = [
+      "/etc/nixos"
+      "/etc/NetworkManager/system-connections"
+  
+   ];
 
   networking.hostName = "janix"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -79,16 +109,16 @@
      packages = with pkgs; [
   #     firefox
   #     tree
-	discover
      ];
    };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [
+   environment.systemPackages = with pkgs; [
   #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #   wget
-  # ];
+      discover
+   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
