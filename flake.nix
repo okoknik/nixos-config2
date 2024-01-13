@@ -1,5 +1,5 @@
 {
-  description = "Jannis NixOS Flake";
+  description = "NixOS Flake";
 
   # `inputs` are the dependencies of the flake,
   # and `outputs` function will return all the build results of the flake.
