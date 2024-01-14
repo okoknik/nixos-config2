@@ -22,7 +22,7 @@
    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # allow flakes
-  nix.settings. experimental-features = [ "nix-command" "flakes" ];
+   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Set your time zone.
    time.timeZone = "Europe/Amsterdam";
@@ -72,7 +72,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.jannis = {
+   users.users.niklas = {
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      initialPassword = "test";

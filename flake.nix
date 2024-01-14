@@ -82,12 +82,12 @@
           # Import the configuration.nix here, so that the
           # old configuration file can still take effect.
           # Note: configuration.nix itself is also a Nixpkgs Module,
-          ./janix.nix
+          ./system-configs/janix.nix
 		      home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jannis = import ./home-configs/jannis-home.nix;
+            home-manager.users.jannis = import ./home-configs/janix-home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
@@ -98,18 +98,33 @@
       "matix" = nixpkgs.lib.nixosSystem{
         system = "x86_64-linux";
         modules = [
-          ./matix.nix
+          ./system-configs/matix.nix
 		      home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jannis = import ./home-configs/jannis-home.nix;
+            home-manager.users.mattes = import ./home-configs/matix-home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }
           impermanence.nixosModules.impermanence
+        ]
+      }
+      "nix" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./system-configs/nix.nix
+		      home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.niklas = import ./home-configs/nix-home.nix;
 
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+          impermanence.nixosModules.impermanence
         ]
       }
       "kodi" = nixpkgs.lib.nixosSystem {
@@ -118,7 +133,7 @@
           # Import the configuration.nix here, so that the
           # old configuration file can still take effect.
           # Note: configuration.nix itself is also a Nixpkgs Module,
-          ./kodi.nix
+          ./system-configs/kodi.nix
           impermanence.nixosModules.impermanence
 	];
       };

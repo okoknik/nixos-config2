@@ -22,7 +22,7 @@
    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # allow flakes
-  nix.settings. experimental-features = [ "nix-command" "flakes" ];
+   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Set your time zone.
    time.timeZone = "Europe/Amsterdam";
@@ -32,7 +32,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-   i18n.defaultLocale = "en_US.UTF-8";
+   i18n.defaultLocale = "de_DE.UTF-8";
    console = {
   #   font = "Lat2-Terminus16";
      keyMap = "de";
@@ -47,8 +47,6 @@
 	displayManager.defaultSession = "plasmawayland";
    };
 
-  
-
   # Configure keymap in X11
    services.xserver.xkb.layout = "de";
    services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -57,7 +55,7 @@
    services.flatpak.enable = true;
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+   services.printing.enable = true;
 
   # Enable sound.
   # sound.enable = true;
@@ -72,7 +70,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.jannis = {
+   users.users.mattes = {
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      initialPassword = "test";
@@ -102,6 +100,15 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  # Enable syncthing
+   services.syncthing = {
+      enable = true;
+      openDefaultPorts = true;
+      user = "mattes";
+      group = "users";
+      guiAddress = "127.0.0.1:8384";
+   };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
