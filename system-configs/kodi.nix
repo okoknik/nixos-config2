@@ -39,6 +39,7 @@
    services.xserver = {
 	enable = true;
 	desktopManager.kodi.enable = true;
+	desktopManager.kodi.package = pkgs.kodi.withPackages (pkgs: with pkgs; [ pvr-iptvsimple ]);
 	displayManager.autoLogin = {
     		enable = true;
     		user = "kodi";
@@ -66,9 +67,6 @@
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      initialPassword = "test";
      packages = with pkgs; [
-	    (pkgs.kodi.passthru.withPackages (kodiPkgs: with kodiPkgs; [
-		pvr-iptvsimple
-	]))
 	    git
      ];
    };
