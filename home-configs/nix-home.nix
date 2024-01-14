@@ -2,8 +2,8 @@
 
 {
   # TODO please change the username & home direcotry to your own
-  home.username = "jannis";
-  home.homeDirectory = "/home/jannis";
+  home.username = "niklas";
+  home.homeDirectory = "/home/niklas";
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -34,6 +34,28 @@
 
     neofetch
 
+    # archives
+    zip
+
+    # networking tools
+    dnsutils  # `dig` + `nslookup`
+    nmap # A utility for network discovery and security auditing
+    mtr # A network diagnostic tool
+
+    # utils
+    tree
+
+    # monitoring
+    btop  # replacement of htop/nmon
+    iotop # io monitoring
+    iftop # network monitoring
+
+    # system tools
+    sysstat
+    lm_sensors # for `sensors` command
+    ethtool
+    pciutils # lspci
+    usbutils # lsusb
   ];
 
   # starship - an customizable prompt for any shell
