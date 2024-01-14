@@ -28,7 +28,7 @@
    time.timeZone = "Europe/Amsterdam";
 
   # Select internationalisation properties.
-   i18n.defaultLocale = "en_US.UTF-8";
+   i18n.defaultLocale = "de_DE.UTF-8";
    console = {
   #   font = "Lat2-Terminus16";
      keyMap = "de";
@@ -40,10 +40,10 @@
 	enable = true;
 	desktopManager.kodi.enable = true;
 	displayManager.autoLogin = {
-    enable = true;
-    user = "kodi";
-   };
-};
+    		enable = true;
+    		user = "kodi";
+   	};
+  };
 
   # Configure keymap in X11
    services.xserver.xkb.layout = "de";
@@ -57,7 +57,7 @@
    services.pipewire = {
 	  enable = true;
 	  pulse.enable = true;
-    alsa.enable = true;
+    	  alsa.enable = true;
    };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -66,6 +66,7 @@
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      initialPassword = "test";
      packages = with pkgs; [
+	    kodiPackages.pvr-iptvsimple
      ];
    };
 
