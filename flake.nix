@@ -109,8 +109,8 @@
             # arguments to home.nix
           }
           impermanence.nixosModules.impermanence
-        ]
-      }
+        ];
+      };
       "nix" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -125,8 +125,8 @@
             # arguments to home.nix
           }
           impermanence.nixosModules.impermanence
-        ]
-      }
+        ];
+      };
       "kodi" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 	      modules = [
