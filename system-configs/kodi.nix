@@ -66,7 +66,11 @@
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      initialPassword = "test";
      packages = with pkgs; [
-	    kodiPackages.pvr-iptvsimple
+	    (pkgs.kodi.passthru.withPackages (kodiPkgs: with kodiPkgs; [
+		pvr-iptvsimple
+	]))
+];
+
 	    git
      ];
    };
