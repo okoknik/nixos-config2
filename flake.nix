@@ -82,12 +82,12 @@
           # Import the configuration.nix here, so that the
           # old configuration file can still take effect.
           # Note: configuration.nix itself is also a Nixpkgs Module,
-          ./configuration.nix
+          ./janix.nix
 		      home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jannis = import ./home.nix;
+            home-manager.users.jannis = import ./home-configs/jannis-home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
@@ -95,9 +95,26 @@
           impermanence.nixosModules.impermanence
         ];
       };
+      "matix" = nixpkgs.lib.nixosSystem{
+        system = "x86_64-linux";
+        modules = [
+          ./matix.nix
+		      home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.jannis = import ./home-configs/jannis-home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+          impermanence.nixosModules.impermanence
+
+        ]
+      }
       "kodi" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	modules = [
+	      modules = [
           # Import the configuration.nix here, so that the
           # old configuration file can still take effect.
           # Note: configuration.nix itself is also a Nixpkgs Module,
