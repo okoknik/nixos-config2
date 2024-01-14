@@ -67,6 +67,7 @@
      initialPassword = "test";
      packages = with pkgs; [
 	    kodiPackages.pvr-iptvsimple
+	    git
      ];
    };
 
