@@ -39,7 +39,7 @@
    services.xserver = {
 	enable = true;
 	desktopManager.kodi.enable = true;
-	desktopManager.kodi.package = pkgs.kodi.withPackages (pkgs: with pkgs; [ pvr-iptvsimple ]);
+	desktopManager.kodi.package = pkgs.kodi.withPackages (pkgs: with pkgs; [ pvr-iptvsimple netflix ]);
 	displayManager.autoLogin = {
     		enable = true;
     		user = "kodi";
