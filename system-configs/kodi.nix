@@ -69,8 +69,6 @@
 	    (pkgs.kodi.passthru.withPackages (kodiPkgs: with kodiPkgs; [
 		pvr-iptvsimple
 	]))
-];
-
 	    git
      ];
    };
