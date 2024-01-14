@@ -58,6 +58,11 @@
     usbutils # lsusb
   ];
 
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.ms-python.python
+  }
+
   # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;
