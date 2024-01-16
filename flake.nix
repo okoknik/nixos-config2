@@ -137,6 +137,22 @@
           impermanence.nixosModules.impermanence
 	];
       };
+       "macix" = nixpkgs.lib.nixosSystem{
+	system = "x86_64-linux";
+        modules = [
+          ./system-configs/macix.nix
+	  home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.mattes = import ./home-configs/macix-home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+          impermanence.nixosModules.impermanence
+        ];
+      };
     };
   };
 }
