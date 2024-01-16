@@ -52,7 +52,7 @@
    services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-   services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound.
   # sound.enable = true;
@@ -81,7 +81,6 @@
    environment.systemPackages = with pkgs; [
   #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #   wget
-      discover
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
