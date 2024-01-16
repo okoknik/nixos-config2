@@ -16,7 +16,7 @@ sudo cryptsetup luksFormat "$DISK"3
 sudo cryptsetup luksConfig "$DISK"3 --label NIXOS
 sudo cryptsetup luksOpen "$DISK"3 crypted
 
-sudo mkfs.btrfs -L Butter "$MAPPER"
+sudo mkfs.btrfs -L ButteFS "$MAPPER"
 sudo mount -t brtfs "$MAPPER" /mnt
 sudo btrfs subvolume create /mnt/root
 sudo btrfs subvolume create /mnt/home
