@@ -73,7 +73,6 @@
    users.users.mattes = {
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     initialPassword = "test";
      packages = with pkgs; [
   #     firefox
   #     tree
