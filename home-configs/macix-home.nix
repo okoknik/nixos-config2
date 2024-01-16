@@ -39,17 +39,6 @@
   # firefox
   programs.firefox = {
     enable = true;
-    #nativeMessagingHosts.packages = [ pkgs.plasma5Packages.plasma-browser-integration ];
-    xdg = {
-      portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-        ];
-      };
-  };
-    
   };
 
   # starship - an customizable prompt for any shell
