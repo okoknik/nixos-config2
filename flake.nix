@@ -145,7 +145,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.mattes = import ./home-configs/macix-home.nix;
+            home-manager.users.niklas = import ./home-configs/macix-home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
