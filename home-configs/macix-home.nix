@@ -33,6 +33,7 @@
     # feel free to add your own or remove some of them
 
     neofetch
+    libsForQt5.xdg-desktop-portal-kde
 
   ];
 
