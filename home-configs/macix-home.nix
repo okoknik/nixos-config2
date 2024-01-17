@@ -34,6 +34,9 @@
 
     neofetch
     libsForQt5.xdg-desktop-portal-kde
+    btop
+    tree
+    sysstat
 
   ];
 
