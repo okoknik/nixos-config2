@@ -19,7 +19,7 @@
   boot.plymouth = {
     enable = true;
     theme = "breeze";
-  }
+  };
 
   networking.hostName = "macix"; # Define your hostname.
   # Pick only one of the below networking options.
