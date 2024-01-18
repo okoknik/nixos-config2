@@ -63,6 +63,9 @@
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
 
+  # configure bluetooth
+  hardware.bluetooth.enable = true;
+
    security.rtkit.enable = true;
    services.pipewire = {
 	  enable = true;

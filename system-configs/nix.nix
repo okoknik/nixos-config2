@@ -10,8 +10,9 @@
       ./hardware-configuration.nix
     ];
   
+  # allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -68,6 +69,10 @@
 	enable = true;
 	pulse.enable = true;
    };
+
+  # configure bluetooth
+  hardware.bluetooth.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
