@@ -16,6 +16,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # newest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # plymouth boot screen
   boot.plymouth = {
     enable = true;
     theme = "breeze";
