@@ -74,7 +74,7 @@
    services.syncthing = {
     enable = true;
     dataDir = "/home/niklas/";
-    configDir = "/home/niklas/.config/syncthing"
+    configDir = "/home/niklas/.config/syncthing";
     settings = {
       devices = {
         framework = {
