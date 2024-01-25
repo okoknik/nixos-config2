@@ -110,14 +110,9 @@
     openDefaultPorts = true;
     dataDir = "/home/niklas/";
     configDir = "/home/niklas/.config/syncthing";
-    settings = {
-      devices = {
-        framework = {
-          id = D24T4CA-VJ6FSO4-7JQGEIT-T54FOKE-6PTPTXZ-VSDNA4M-WAYFCZM-H66F3QS;
-        };
-      }
     };
    };
+   system.autoUpgrade.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

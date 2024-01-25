@@ -108,6 +108,7 @@
 
   # List services that you want to enable:
 
+   system.autoUpgrade.enable = true;
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
