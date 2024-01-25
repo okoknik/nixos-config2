@@ -68,7 +68,21 @@
   # hardware.pulseaudio.enable = true;
 
   # configure bluetooth
-  hardware.bluetooth.enable = true;
+   hardware.bluetooth.enable = true;
+
+  # enable syncthing
+   services.syncthing = {
+    enable = true;
+    dataDir = "/home/niklas/";
+    configDir = "/home/niklas/.config/syncthing"
+    settings = {
+      devices = {
+        framework = {
+          id = D24T4CA-VJ6FSO4-7JQGEIT-T54FOKE-6PTPTXZ-VSDNA4M-WAYFCZM-H66F3QS;
+        };
+      };
+    };
+   };
 
    security.rtkit.enable = true;
    services.pipewire = {
