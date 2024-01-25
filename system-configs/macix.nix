@@ -115,7 +115,7 @@
         framework = {
           id = D24T4CA-VJ6FSO4-7JQGEIT-T54FOKE-6PTPTXZ-VSDNA4M-WAYFCZM-H66F3QS;
         };
-      };
+      }
     };
    };
 
