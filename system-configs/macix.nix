@@ -112,7 +112,8 @@
     configDir = "/home/niklas/.config/syncthing";
     };
    };
-   
+
+  # Enable auto-update 
    system.autoUpgrade.enable = true;
 
   # Open ports in the firewall.
