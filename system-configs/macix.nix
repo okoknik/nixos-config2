@@ -16,10 +16,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # newest kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  # plymouth boot screen
   boot.plymouth = {
     enable = true;
     theme = "breeze";
@@ -70,20 +66,6 @@
   # configure bluetooth
    hardware.bluetooth.enable = true;
 
-  # enable syncthing
-   services.syncthing = {
-    enable = true;
-    dataDir = "/home/niklas/";
-    configDir = "/home/niklas/.config/syncthing";
-    settings = {
-      devices = {
-        framework = {
-          id = D24T4CA-VJ6FSO4-7JQGEIT-T54FOKE-6PTPTXZ-VSDNA4M-WAYFCZM-H66F3QS;
-        };
-      };
-    };
-   };
-
    security.rtkit.enable = true;
    services.pipewire = {
 	  enable = true;
@@ -124,11 +106,17 @@
 
   # Enable syncthing
    services.syncthing = {
-      enable = true;
-      openDefaultPorts = true;
-      user = "niklas";
-      group = "users";
-      guiAddress = "127.0.0.1:8384";
+    enable = true;
+    openDefaultPorts = true;
+    dataDir = "/home/niklas/";
+    configDir = "/home/niklas/.config/syncthing";
+    settings = {
+      devices = {
+        framework = {
+          id = D24T4CA-VJ6FSO4-7JQGEIT-T54FOKE-6PTPTXZ-VSDNA4M-WAYFCZM-H66F3QS;
+        };
+      };
+    };
    };
 
   # Open ports in the firewall.
