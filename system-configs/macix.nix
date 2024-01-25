@@ -110,7 +110,6 @@
     openDefaultPorts = true;
     dataDir = "/home/niklas/";
     configDir = "/home/niklas/.config/syncthing";
-    };
    };
 
   # Enable auto-update 
