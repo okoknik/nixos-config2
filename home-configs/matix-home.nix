@@ -34,6 +34,9 @@
 
     neofetch
 
+    usbutils
+    pciutils
+
   ];
 
   # starship - an customizable prompt for any shell
