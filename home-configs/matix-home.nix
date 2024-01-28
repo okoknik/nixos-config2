@@ -33,7 +33,8 @@
     # feel free to add your own or remove some of them
 
     neofetch
-
+    zip
+    nmap
     usbutils
     pciutils
 
