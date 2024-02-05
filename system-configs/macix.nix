@@ -80,6 +80,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.niklas = {
      isNormalUser = true;
+     mutableUsers = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
   #     firefox
