@@ -17,6 +17,21 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelParams = [
+    # For Power consumption
+    "mem_sleep_default=deep"
+    # Workaround iGPU hangs
+    "i915.enable_psr=1"
+  ];
+
+  boot.blacklistedKernelModules = [ 
+    # This enables the brightness and airplane mode keys to work
+    "hid-sensor-hub"
+    # This fixes controller crashes during sleep
+    "cros_ec_lpcs"
+  ];
+
+
   networking.hostName = "nix"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -44,7 +59,7 @@
    services.xserver = {
 	enable = true;
 	displayManager.sddm.enable = true;
-	desktopManager.plasma5.enable = true;
+	desktopManager.plasma6.enable = true;
 	displayManager.defaultSession = "plasmawayland";
    };
 
@@ -77,7 +92,21 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users = {
+    mutableUsers = true;
+    users."${username}" = {
+      homeMode = "755";
+      isNormalUser = true;
+      description = "${gitUsername}";
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+      shell = pkgs.${theShell};
+      ignoreShellProgramCheck = true;
+      packages = with pkgs; [];
+    };
+  };
+
    users.users.niklas = {
+     mutableUsers= true;
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      initialPassword = "test";

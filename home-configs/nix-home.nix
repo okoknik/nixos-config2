@@ -24,7 +24,13 @@
   programs.git = {
     enable = true;
     userName = "simstuff";
-    userEmail = "oetkenniklas@gmail.com";
+    userEmail = "oetkenniklas@gmail.com";[init]
+    defaultBranch = main 
+    config = {
+      defaultBranch = "main";
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/id_rsa.pub";
+    }
   };
 
   # Packages that should be installed to the user profile.
@@ -44,6 +50,7 @@
 
     # utils
     tree
+    fzf
 
     # monitoring
     btop  # replacement of htop/nmon
@@ -54,6 +61,8 @@
     sysstat
     lm_sensors # for `sensors` command
     ethtool
+    powertop # battery
+    du-dust  # disk space analyzer
     pciutils # lspci
     usbutils # lsusb
   ];
@@ -95,6 +104,22 @@
     enableCompletion = true;
  
   };
+
+  # Create XDG Dirs
+  xdg = {
+    userDirs = {
+        enable = true;
+        createDirectories = true;
+    };
+  };
+
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
+  };
+
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

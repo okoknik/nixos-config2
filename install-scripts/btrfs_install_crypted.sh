@@ -47,4 +47,11 @@ sudo mount "$DISK"1 /mnt/boot -o umask=0077
 
 
 sudo nixos-generate-config --root /mnt
+#aczivate experimental features
 sudo nano /mnt/etc/nixos/configuration.nix
+
+#after install create hardware.nix
+#nixos-generate-config --show-hardware-config > hardware.nix
+#load new os
+#sudo nixos-rebuild switch --flake .#$hostName
+
