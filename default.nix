@@ -61,7 +61,7 @@
       xserver = {
         displayManager.sddm.wayland.enable = true;
 	      displayManager.defaultSession = "plasma";
-      }
+      };
    };
 
   
