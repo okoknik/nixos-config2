@@ -33,7 +33,7 @@
   ];
 
 
-  networking.hostName = "${host}"; # Define your hostname.
+  networking.hostName = "nix"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -71,7 +71,7 @@
    services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Configure Flatpak
-  # services.flatpak.enable = true;
+   services.flatpak.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -82,8 +82,8 @@
 
    security.rtkit.enable = true;
    services.pipewire = {
-	    enable = true;
-	    pulse.enable = true;
+	enable = true;
+	pulse.enable = true;
    };
 
   # configure bluetooth
@@ -93,11 +93,10 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users = {
+  users = {
     mutableUsers = true;
-    "${username}" = {
+    users."${username}" = {
       homeMode = "755";
-      initialPassword = "test";
       isNormalUser = true;
       description = "${gitUsername}";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
@@ -105,6 +104,26 @@
       ignoreShellProgramCheck = true;
       packages = with pkgs; [];
     };
+  };
+
+   users.users.niklas = {
+     mutableUsers= true;
+     isNormalUser = true;
+     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     initialPassword = "test";
+     packages = with pkgs; [
+  #     firefox
+  #     tree
+     ];
+   };
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+   environment.systemPackages = with pkgs; [
+  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #   wget
+      discover
+   ];
 
   # make electron apps use wayland
    environment.sessionVariables.NIXOS_OZONE_WL = "1";
