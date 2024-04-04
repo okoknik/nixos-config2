@@ -61,10 +61,12 @@
     usbutils # lsusb
   ];
 
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode-extensions.ms-python.vscode-pylance;
-  };
+ programs.vscode = {
+  enable = true;
+  extensions = with pkgs.vscode-extensions; [
+    ms-python.python
+  ];
+};
 
   # starship - an customizable prompt for any shell
   programs.starship = {
