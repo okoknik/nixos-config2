@@ -30,7 +30,13 @@
   # 
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
-  outputs = { self, nixpkgs, home-manager, impermanence, ... }@inputs: {
+  outputs = inputs@{ nixpkgs, home-manager, impermanence, ... }:
+  let
+    system = "x86_64-linux";
+    host = "framework";
+    inherit (import ./hosts/${host}/options.nix) username hostname;
+
+  in{
     nixosConfigurations = {
       # By default, NixOS will try to refer the nixosConfiguration with
       # However, the configuration name can also be specified using:
@@ -43,9 +49,7 @@
       # deploy this configuration on any NixOS system:
       #   sudo nixos-rebuild switch --flake .#nixos-test
   
-      "framework" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        host = "framework";
+      "${host}" = nixpkgs.lib.nixosSystem {
         # The Nix module system can modularize configuration,
         # improving the maintainability of configuration.
         #
@@ -79,6 +83,7 @@
         # you must use `specialArgs` by uncomment the following line:
         #
         # specialArgs = {
+            inherit host
             userName = import ./hosts/${host}/options.nix username;
             };  # pass custom arguments into all sub module.
         modules = [
@@ -99,4 +104,5 @@
         ];
       };
     };    
+  }
 }
