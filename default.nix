@@ -8,8 +8,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./options.nix
     ];
   
+  username = import ./options.nix username;
+  gitUsername = import ./options.nix gitUsername;
+
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -70,7 +74,7 @@
    services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Configure Flatpak
-   services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -81,8 +85,8 @@
 
    security.rtkit.enable = true;
    services.pipewire = {
-	enable = true;
-	pulse.enable = true;
+	    enable = true;
+	    pulse.enable = true;
    };
 
   # configure bluetooth
@@ -104,17 +108,6 @@
       packages = with pkgs; [];
     };
   };
-
-   users.users.niklas = {
-     mutableUsers= true;
-     isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     initialPassword = "test";
-     packages = with pkgs; [
-  #     firefox
-  #     tree
-     ];
-   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
