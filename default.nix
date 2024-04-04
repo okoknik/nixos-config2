@@ -95,7 +95,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     mutableUsers = true;
-    username = import ./options.nix username
+    username = import ./options.nix username;
     users."${username}" = {
       homeMode = "755";
       isNormalUser = true;
