@@ -89,7 +89,6 @@
       font = {
         size = 12;
       };
-      startup_mode = "Maximized";
       scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
     };
