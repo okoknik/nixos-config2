@@ -94,7 +94,7 @@
 		      home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
-              inherit username;
+              #inherit username;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
