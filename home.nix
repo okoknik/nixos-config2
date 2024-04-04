@@ -3,7 +3,6 @@
 {
   # TODO please change the username & home direcotry to your own
 
-  userName = "niklas";
   home.username = "niklas";
   home.homeDirectory = "/home/niklas";
 
