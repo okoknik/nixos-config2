@@ -49,5 +49,3 @@ sudo mkdir /mnt/boot
 sudo mount "$DISK"1 /mnt/boot -o umask=0077
 
 sudo nixos-generate-config --root /mnt
-
-sudo systemctl reboot
