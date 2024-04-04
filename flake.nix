@@ -34,7 +34,7 @@
   let
     system = "x86_64-linux";
     host = "framework";
-    inherit (import ./hosts/${host}/options.nix) username hostname;
+    #inherit (import ./hosts/${host}/options.nix) username hostname;
 
   in{
     nixosConfigurations = {
