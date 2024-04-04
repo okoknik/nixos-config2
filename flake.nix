@@ -23,13 +23,11 @@
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
   outputs = { self, nixpkgs, home-manager, impermanence, ... }@inputs: {
-        devShells = forAllSystems (system:
-        let pkgs = nixpkgsFor.${system};
-        in {
-            default = pkgs.mkShell {
-                buildInputs = with pkgs; [ go gopls gotools go-tools ];
-            };
-        });
+    devShells.x86_64-linux.default = pkgs.mkShell {
+        packages = [
+          pkgs.python3
+        ];
+      };
     nixosConfigurations = {
       "framework" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
