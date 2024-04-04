@@ -49,3 +49,6 @@ sudo mkdir /mnt/boot
 sudo mount "$DISK"1 /mnt/boot -o umask=0077
 
 sudo nixos-generate-config --root /mnt
+NIX_CONFIG="nixpkgs.config.allowUnfree = true"
+
+sudo nixos-install
