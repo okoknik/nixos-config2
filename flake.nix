@@ -42,9 +42,10 @@
       # Run the following command in the flake's directory to
       # deploy this configuration on any NixOS system:
       #   sudo nixos-rebuild switch --flake .#nixos-test
+  
       "framework" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        host = import ./hosts/${host}/options.nix hostname;
+        host = framework;
         # The Nix module system can modularize configuration,
         # improving the maintainability of configuration.
         #
