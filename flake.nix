@@ -93,10 +93,7 @@
           ./default.nix
 		      home-manager.nixosModules.home-manager
           {
-            home-manager.extraSpecialArgs = {
-              inherit username;
-              inherit inputs;
-            };
+            
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./home.nix;

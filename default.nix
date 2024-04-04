@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, username, host, ... }:
 
 {
   imports =
@@ -11,9 +11,6 @@
       ./options.nix
     ];
   
-  username = import ./options.nix username;
-  gitUsername = import ./options.nix gitUsername;
-
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -36,7 +33,7 @@
   ];
 
 
-  networking.hostName = "nix"; # Define your hostname.
+  networking.hostName = "${host}"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -96,10 +93,10 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users = {
-    mutableUsers = true;
-    users."${username}" = {
+  users.users = {
+    "${username}" = {
       homeMode = "755";
+      hashedPassword = "$6$YdPBODxytqUWXCYL$AHW1U9C6Qqkf6PZJI54jxFcPVm2sm/XWq3Z1qa94PFYz0FF.za9gl5WZL/z/g4nFLQ94SSEzMg5GMzMjJ6Vd7.";
       isNormalUser = true;
       description = "${gitUsername}";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
@@ -107,7 +104,7 @@
       ignoreShellProgramCheck = true;
       packages = with pkgs; [];
     };
-  };
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
