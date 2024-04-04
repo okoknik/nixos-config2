@@ -142,7 +142,7 @@ esac
 sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./hosts/$hostName/options.nix
 
 echo "Generating The Hardware Configuration"
-sudo nixos-generate-config --show-hardware-config > ./hosts/$hostName/hardware.nix
+sudo nixos-generate-config --show-hardware-config > ./hardware.nix
 
 echo "-----"
 echo "Now Going To Build The OS, 🤞"
