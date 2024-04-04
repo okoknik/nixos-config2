@@ -44,7 +44,7 @@
       #   sudo nixos-rebuild switch --flake .#nixos-test
       "framework" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-
+        host = import ./hosts/${host}/options.nix hostname;
         # The Nix module system can modularize configuration,
         # improving the maintainability of configuration.
         #
@@ -79,7 +79,6 @@
         #
         # specialArgs = {
             userName = import ./hosts/${host}/options.nix username;
-            host = import ./hosts/${host}/options.nix hostname;
             };  # pass custom arguments into all sub module.
         modules = [
           # Import the configuration.nix here, so that the
