@@ -16,7 +16,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  
   boot.kernelParams = [
     # For Power consumption
     "mem_sleep_default=deep"
@@ -56,8 +56,12 @@
    };
 
   # Enable the X11 windowing system.
-   services.desktopManager.plasma6.enable = true; 
-   services.xserver.displayManager.sddm.wayland.enable = true;
+  services.xserver = {
+	  enable = true;
+    desktopManager.plasma6.enable = true; 
+    displayManager.sddm.wayland.enable = true;
+    displayManager.defaultSession = "plasma";
+  };
   
 
   # Configure keymap in X11
@@ -65,7 +69,7 @@
    services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Configure Flatpak
-   services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
