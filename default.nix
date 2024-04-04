@@ -60,8 +60,8 @@
 	  enable = true;
     displayManager.sddm.wayland.enable = true;
     displayManager.defaultSession = "plasma";
+    displayManager.sddm.theme = "breeze";
   };
-  
   services.desktopManager.plasma6.enable = true; 
 
 
