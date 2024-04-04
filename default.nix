@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hosts/framework/hardware.nix
+      ./hardware.nix
       ./options.nix
     ];
   
@@ -94,9 +94,10 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
+    mutableUsers = true;
     "${username}" = {
       homeMode = "755";
-      hashedPassword = "$6$YdPBODxytqUWXCYL$AHW1U9C6Qqkf6PZJI54jxFcPVm2sm/XWq3Z1qa94PFYz0FF.za9gl5WZL/z/g4nFLQ94SSEzMg5GMzMjJ6Vd7.";
+      initialPassword = "test";
       isNormalUser = true;
       description = "${gitUsername}";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
@@ -104,15 +105,6 @@
       ignoreShellProgramCheck = true;
       packages = with pkgs; [];
     };
-
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-   environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-      discover
-   ];
 
   # make electron apps use wayland
    environment.sessionVariables.NIXOS_OZONE_WL = "1";
