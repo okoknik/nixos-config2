@@ -95,6 +95,7 @@
           {
             home-manager.extraSpecialArgs = {
               inherit username;
+              inherit inputs;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
