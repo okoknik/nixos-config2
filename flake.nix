@@ -34,7 +34,7 @@
   let
     system = "x86_64-linux";
     host = "framework";
-    #inherit (import ./hosts/${host}/options.nix) username hostname;
+    #inherit (import ./hosts/${host}/options.nix) username ;
 
   in{
     nixosConfigurations = {
@@ -83,7 +83,7 @@
         # you must use `specialArgs` by uncomment the following line:
         #
         # specialArgs = {
-            inherit username;
+            username = import ./hosts/${host}/options.nix username;
             #inherit inputs;
             };  # pass custom arguments into all sub module.
         modules = [
@@ -94,7 +94,6 @@
 		      home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
-              username = import ./hosts/${host}/options.nix username;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
