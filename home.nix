@@ -21,7 +21,7 @@
     enable = true;
     userName = "simstuff";
     userEmail = "oetkenniklas@gmail.com";
-    defaultBranch = main 
+    defaultBranch = main; 
     config = {
       defaultBranch = "main";
       gpg.format = "ssh";
