@@ -3,7 +3,7 @@
 {
   # TODO please change the username & home direcotry to your own
 
-  userName = import ./hosts/${host}/options.nix username;
+  userName = "niklas";
   home.username = ${userName};
   home.homeDirectory = "/home/${userName}";
 
