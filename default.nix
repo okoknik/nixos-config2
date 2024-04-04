@@ -109,7 +109,19 @@
   #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #   wget
   #    discover
+      git
+      (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
    ];
+
+  xdg = {
+  portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
+  };
+};
 
   # make electron apps use wayland
    environment.sessionVariables.NIXOS_OZONE_WL = "1";

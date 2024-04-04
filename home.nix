@@ -59,6 +59,11 @@
     du-dust  # disk space analyzer
     pciutils # lspci
     usbutils # lsusb
+
+    # programs
+    bitwarden-desktop
+    zotero
+    teams-for-linux
   ];
 
  programs.vscode = {
