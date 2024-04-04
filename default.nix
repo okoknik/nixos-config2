@@ -11,7 +11,7 @@
       ./options.nix
     ];
   
-  username = import ./options.nix username
+  username = import ./options.nix username;
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
