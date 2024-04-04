@@ -34,8 +34,15 @@
   let
     system = "x86_64-linux";
     host = "framework";
-    #inherit (import ./hosts/${host}/options.nix) username ;
-    username = "niklas";
+    inherit (import ./hosts/${host}/options.nix) username ;
+    #username = "niklas";
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+	    allowUnfree = true;
+      };
+    };
+
   in{
     nixosConfigurations = {
       # By default, NixOS will try to refer the nixosConfiguration with
