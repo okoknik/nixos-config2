@@ -94,6 +94,9 @@
           ./default.nix
 		      home-manager.nixosModules.home-manager
           {
+            home-manager.extraSpecialArgs = {
+              inherit username;
+            };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${userName} = import ./home.nix;
