@@ -99,8 +99,6 @@
       homeMode = "755";
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-      shell = pkgs.${theShell};
-      ignoreShellProgramCheck = true;
       packages = with pkgs; [];
     };
   };
