@@ -42,7 +42,7 @@
       # Run the following command in the flake's directory to
       # deploy this configuration on any NixOS system:
       #   sudo nixos-rebuild switch --flake .#nixos-test
-      "janix" = nixpkgs.lib.nixosSystem {
+      "framework" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
         # The Nix module system can modularize configuration,
@@ -77,17 +77,19 @@
         # `specialArgs`. 
         # you must use `specialArgs` by uncomment the following line:
         #
-        # specialArgs = {...};  # pass custom arguments into all sub module.
+        # specialArgs = {
+            userName = import ./hosts/${host}/options.nix username;
+            };  # pass custom arguments into all sub module.
         modules = [
           # Import the configuration.nix here, so that the
           # old configuration file can still take effect.
           # Note: configuration.nix itself is also a Nixpkgs Module,
-          ./system-configs/janix.nix
+          ./default.nix
 		      home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jannis = import ./home-configs/janix-home.nix;
+            home-manager.users.$userName = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
@@ -95,64 +97,6 @@
           impermanence.nixosModules.impermanence
         ];
       };
-      "matix" = nixpkgs.lib.nixosSystem{
-        system = "x86_64-linux";
-        modules = [
-          ./system-configs/matix.nix
-		      home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.mattes = import ./home-configs/matix-home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-          }
-          impermanence.nixosModules.impermanence
-        ];
-      };
-      "nix" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./system-configs/nix.nix
-		      home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.niklas = import ./home-configs/nix-home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-          }
-          impermanence.nixosModules.impermanence
-        ];
-      };
-      "kodi" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-	      modules = [
-          # Import the configuration.nix here, so that the
-          # old configuration file can still take effect.
-          # Note: configuration.nix itself is also a Nixpkgs Module,
-          ./system-configs/kodi.nix
-          impermanence.nixosModules.impermanence
-	];
-      };
-       "macix" = nixpkgs.lib.nixosSystem{
-	system = "x86_64-linux";
-        modules = [
-          ./system-configs/macix.nix
-	  home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.niklas = import ./home-configs/macix-home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-          }
-          impermanence.nixosModules.impermanence
-        ];
-      };
-    };
+    };    
   };
 }

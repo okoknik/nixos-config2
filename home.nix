@@ -2,11 +2,12 @@
 
 {
   # TODO please change the username & home direcotry to your own
-  home.username = "mattes";
-  home.homeDirectory = "/home/mattes";
+
+  userName = import ./hosts/${host}/options.nix username;
+  home.username = $userName;
+  home.homeDirectory = "/home/$userName";
 
   # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
   # link all files in `./scripts` to `~/.config/i3/scripts`
   # home.file.".config/i3/scripts" = {
@@ -15,16 +16,17 @@
   #   executable = true;  # make all files executable
   # };
 
-  # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
-
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "simstuff";
-    userEmail = "oetkenniklas@gmail.com";
+    userEmail = "oetkenniklas@gmail.com";[init]
+    defaultBranch = main 
+    config = {
+      defaultBranch = "main";
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/id_rsa.pub";
+    }
   };
 
   # Packages that should be installed to the user profile.
@@ -33,12 +35,38 @@
     # feel free to add your own or remove some of them
 
     neofetch
-    zip
-    nmap
-    usbutils
-    pciutils
 
+    # archives
+    zip
+
+    # networking tools
+    dnsutils  # `dig` + `nslookup`
+    nmap # A utility for network discovery and security auditing
+    mtr # A network diagnostic tool
+
+    # utils
+    tree
+    fzf
+
+    # monitoring
+    btop  # replacement of htop/nmon
+    iotop # io monitoring
+    iftop # network monitoring
+
+    # system tools
+    sysstat
+    lm_sensors # for `sensors` command
+    ethtool
+    powertop # battery
+    du-dust  # disk space analyzer
+    pciutils # lspci
+    usbutils # lsusb
   ];
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.ms-python.python
+  }
 
   # starship - an customizable prompt for any shell
   programs.starship = {
@@ -71,6 +99,14 @@
     enable = true;
     enableCompletion = true;
  
+  };
+
+  # Create XDG Dirs
+  xdg = {
+    userDirs = {
+        enable = true;
+        createDirectories = true;
+    };
   };
 
   # This value determines the home Manager release that your
