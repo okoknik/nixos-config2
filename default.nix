@@ -107,17 +107,6 @@
     };
   };
 
-   users.users.niklas = {
-     mutableUsers= true;
-     isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     initialPassword = "test";
-     packages = with pkgs; [
-  #     firefox
-  #     tree
-     ];
-   };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
