@@ -84,7 +84,7 @@
         #
         # specialArgs = {
             inherit username;
-            inherit inputs;
+            #inherit inputs;
             inherit host;
             };  # pass custom arguments into all sub module.
         modules = [
