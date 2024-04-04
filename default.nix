@@ -98,7 +98,6 @@
     users.niklas = {
       homeMode = "755";
       isNormalUser = true;
-      description = "${gitUsername}";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
       shell = pkgs.${theShell};
       ignoreShellProgramCheck = true;
@@ -111,7 +110,7 @@
    environment.systemPackages = with pkgs; [
   #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #   wget
-      discover
+  #    discover
    ];
 
   # make electron apps use wayland
