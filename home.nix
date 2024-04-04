@@ -63,7 +63,7 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.ms-python.python;
+    package = pkgs.vscode-extensions.ms-python.vscode-pylance;
   };
 
   # starship - an customizable prompt for any shell
