@@ -1,6 +1,9 @@
 ###################
 # Configuration
 read -p "Enter Your New Hostname: [ framework ] " hostName
+if [ -z "$hostName" ]; then
+  hostName="framework"
+fi
 echo "-----"
 
 # cp host options.nix
@@ -83,23 +86,6 @@ case $user_input_lower in
     ;;
 esac
 sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./hosts/$hostName/options.nix
-
-# python
-echo "-----"
-read -p "Enable Python & Pycharm Support: [ false ] " pythonEnable
-if [ -z "$pythonEnable" ]; then
-  pythonEnable="false"
-fi
-user_input_lower=$(echo "$pythonEnable" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    pythonEnable="true"
-    ;;
-  *)
-    pythonEnable="false"
-    ;;
-esac
-sed -i "/^\s*python[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$pythonEnable\"/" ./hosts/$hostName/options.nix
 
 ############## 
 # hardware
