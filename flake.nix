@@ -83,8 +83,9 @@
         # you must use `specialArgs` by uncomment the following line:
         #
         # specialArgs = {
-            inherit host
-            userName = import ./hosts/${host}/options.nix username;
+            inherit host;
+            inherit username;
+            #inherit inputs;
             };  # pass custom arguments into all sub module.
         modules = [
           # Import the configuration.nix here, so that the
