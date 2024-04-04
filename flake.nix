@@ -34,7 +34,7 @@
   let
     system = "x86_64-linux";
     host = "framework";
-    #inherit (import ./hosts/${host}/options.nix) username ;
+    inherit (import ./hosts/${host}/options.nix) username ;
 
   in{
     nixosConfigurations = {
@@ -83,7 +83,7 @@
         # you must use `specialArgs` by uncomment the following line:
         #
         # specialArgs = {
-            username = import ./hosts/${host}/options.nix username;
+            inherit username;
             #inherit inputs;
             };  # pass custom arguments into all sub module.
         modules = [
