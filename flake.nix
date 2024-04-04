@@ -34,8 +34,8 @@
   let
     system = "x86_64-linux";
     host = "framework";
-    inherit (import ./hosts/${host}/options.nix) username ;
-
+    #inherit (import ./hosts/${host}/options.nix) username ;
+    username = "niklas"
   in{
     nixosConfigurations = {
       # By default, NixOS will try to refer the nixosConfiguration with
