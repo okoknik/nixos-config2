@@ -45,7 +45,7 @@
   
       "framework" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        host = framework;
+        host = "framework";
         # The Nix module system can modularize configuration,
         # improving the maintainability of configuration.
         #
