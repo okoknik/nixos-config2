@@ -20,7 +20,7 @@
   programs.git = {
     enable = true;
     userName = "simstuff";
-    userEmail = "oetkenniklas@gmail.com";[init]
+    userEmail = "oetkenniklas@gmail.com";
     defaultBranch = main 
     config = {
       defaultBranch = "main";
