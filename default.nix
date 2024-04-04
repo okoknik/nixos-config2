@@ -91,6 +91,7 @@
     mutableUsers = true;
     users.niklas = {
       homeMode = "755";
+      initialPassword = "test";
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
       packages = with pkgs; [];
