@@ -26,7 +26,7 @@
       defaultBranch = "main";
       gpg.format = "ssh";
       user.signingkey = "~/.ssh/id_rsa.pub";
-    }
+    };
   };
 
   # Packages that should be installed to the user profile.
