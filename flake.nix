@@ -28,7 +28,7 @@
         system = "x86_64-linux";
         # specialArgs = {...};  # pass custom arguments into all sub module.
         modules = [
-          ./configuration.nix
+          ./default.nix
 		      home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
