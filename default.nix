@@ -58,11 +58,12 @@
   # Enable the X11 windowing system.
   services.xserver = {
 	  enable = true;
-    desktopManager.plasma6.enable = true; 
     displayManager.sddm.wayland.enable = true;
     displayManager.defaultSession = "plasma";
   };
   
+  services.desktopManager.plasma6.enable = true; 
+
 
   # Configure keymap in X11
    services.xserver.xkb.layout = "de";
