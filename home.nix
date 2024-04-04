@@ -88,6 +88,7 @@
         size = 12;
         draw_bold_text_with_bright_colors = true;
       };
+      startup_mode = "Maximized";
       scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
     };
