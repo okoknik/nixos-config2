@@ -56,11 +56,12 @@
    };
 
   # Enable the X11 windowing system.
-   services.xserver = {
-	enable = true;
-	displayManager.sddm.enable = true;
-	desktopManager.plasma6.enable = true;
-	displayManager.defaultSession = "plasma";
+   services = {
+    	desktopManager.plasma6.enable = true;
+      xserver = {
+        displayManager.sddm.wayland.enable = true;
+	      displayManager.defaultSession = "plasma";
+      }
    };
 
   
