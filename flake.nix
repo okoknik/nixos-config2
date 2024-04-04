@@ -83,9 +83,6 @@
         # you must use `specialArgs` by uncomment the following line:
         #
         # specialArgs = {
-            inherit username;
-            #inherit inputs;
-            inherit host;
             };  # pass custom arguments into all sub module.
         modules = [
           # Import the configuration.nix here, so that the
@@ -99,7 +96,7 @@
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home.nix;
+            home-manager.users.niklas = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
