@@ -4,8 +4,8 @@
   # TODO please change the username & home direcotry to your own
 
   userName = "niklas";
-  home.username = ${userName};
-  home.homeDirectory = "/home/${userName}";
+  home.username = "${userName}";
+  home.homeDirectory = "/home/"${userName}"";
 
   # link the configuration file in current directory to the specified location in home directory
 
