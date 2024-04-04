@@ -93,7 +93,9 @@
           ./default.nix
 		      home-manager.nixosModules.home-manager
           {
-            
+            home-manager.extraSpecialArgs = {
+              username = import ./hosts/${host}/options.nix username;
+            };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./home.nix;
