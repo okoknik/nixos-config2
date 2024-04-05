@@ -129,6 +129,9 @@ system.autoUpgrade = {
   # make electron apps use wayland
    environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+### THUNDERBOLT
+services.hardware.bolt.enable = true;
+
   ### GRAPHICS
   # Enable OpenGL
   hardware.opengl = {
@@ -173,7 +176,7 @@ hardware.nvidia = {
 		};
 		# Make sure to use the correct Bus ID values for your system!
 		intelBusId = "PCI:0:2:0";
-		#nvidiaBusId = "PCI:14:0:0";
+		nvidiaBusId = "PCI:14:0:0";
 	};
   };
 
