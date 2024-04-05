@@ -118,6 +118,14 @@ programs.neovim = {
  
   };
 
+  # direnv for development
+  programs.direnv = {
+      enable = true;
+      enableBashIntegration = true; 
+      nix-direnv.enable = true;
+    };
+
+
   # Create XDG Dirs
   xdg = {
     userDirs = {
