@@ -79,8 +79,9 @@
   '';
 };
 
-programs.neovim = {
+programs.nixvim = {
   enable = true;
+  defaultEditor = true;
 };
 
  programs.vscode = {
