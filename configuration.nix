@@ -116,7 +116,6 @@
   #    discover
       git
       (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
-      nixvim
    ];
 
   xdg = {

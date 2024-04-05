@@ -45,7 +45,6 @@
             home-manager.users.niklas = import ./home.nix;
           }
           impermanence.nixosModules.impermanence
-          nixvim.nixosModules.nixvim
         ];
       };
     };
