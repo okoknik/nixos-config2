@@ -64,6 +64,7 @@
     bitwarden-desktop
     zotero
     teams-for-linux
+    thunderbird
   ];
 
  programs.vscode = {
