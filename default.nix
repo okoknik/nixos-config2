@@ -132,16 +132,17 @@ system.autoUpgrade = {
 ### THUNDERBOLT
 services.hardware.bolt.enable = true;
 
-  ### GRAPHICS
-  # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+  
+### GRAPHICS
+# Enable OpenGL
+hardware.opengl = {
+  enable = true;
+  driSupport = true;
+  driSupport32Bit = true;
+};
 
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+# Load nvidia driver for Xorg and Wayland
+services.xserver.videoDrivers = ["nvidia"];
 
 hardware.nvidia = {
 
@@ -180,6 +181,18 @@ hardware.nvidia = {
 	};
   };
 
+  ### Syncthing
+  services.syncthing = {
+        enable = true;
+        user = "niklas";
+        dataDir = "/home/niklas/Documents";    # Default folder for new synced folders
+        configDir = "/home/niklas/Documents/.config/syncthing";   # Folder for Syncthing's settings and keys
+        settings.gui = {
+          user = "username";
+          password = "password";
+      };
+    };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -192,8 +205,8 @@ hardware.nvidia = {
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+   networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+   networking.firewall.allowedUDPPorts = [ 22000 21027 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
