@@ -21,7 +21,7 @@
     userName = "simstuff";
     userEmail = "oetkenniklas@gmail.com";
     extraConfig = {
-     #defaultBranch = "main";
+      init.defaultBranch = "main";
       gpg.format = "ssh";
       user.signingkey = "~/.ssh/id_ed25519.pub";
     };
