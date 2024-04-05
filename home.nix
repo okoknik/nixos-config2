@@ -46,6 +46,9 @@
     tree
     fzf
 
+    # fingerprint
+    fprintd
+
     # monitoring
     btop  # replacement of htop/nmon
     iotop # io monitoring
