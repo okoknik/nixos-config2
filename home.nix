@@ -65,11 +65,8 @@
     zotero
     teams-for-linux
     thunderbird
+    steam
   ];
-
-programs.steam = {
-  enable = true;
-};
 
  programs.tmux = {
   enable = true;
