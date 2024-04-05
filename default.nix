@@ -22,6 +22,7 @@
     "mem_sleep_default=deep"
     # Workaround iGPU hangs
     "i915.enable_psr=1"
+    "nvme.noacpi=1"
   ];
 
   boot.blacklistedKernelModules = [ 
@@ -29,6 +30,7 @@
     "hid-sensor-hub"
     # This fixes controller crashes during sleep
     "cros_ec_lpcs"
+    "cros-usbpd-charger"
   ];
 
 
@@ -83,7 +85,10 @@
    services.pipewire = {
 	enable = true;
 	pulse.enable = true;
-   };
+   };#
+
+  # fingerprint
+  services.fprintd.enable = lib.mkDefault true;
 
   # configure bluetooth
    hardware.bluetooth.enable = true;
@@ -180,6 +185,13 @@ hardware.nvidia = {
 		nvidiaBusId = "PCI:1:0:0";
 	};
   };
+
+  ### Audio fixes
+  services.udev.extraRules = ''
+    # Fix headphone noise when on powersave
+    # https://community.frame.work/t/headphone-jack-intermittent-noise/5246/55
+    SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0xa0e0", ATTR{power/control}="on"
+  '';
 
   ### Syncthing
   services.syncthing = {
