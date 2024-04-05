@@ -37,7 +37,7 @@
         system = "x86_64-linux";
         # specialArgs = {...};  # pass custom arguments into all sub module.
         modules = [
-          ./default.nix
+          ./configuration.nix
           nixvim.homeManagerModules.nixvim
 		      home-manager.nixosModules.home-manager
           {
