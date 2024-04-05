@@ -1,4 +1,4 @@
-DISK=/dev/nvme0n1p
+DISK=/dev/nvme0n1
 MAPPER=/dev/mapper/crypted
 
 ######################
@@ -11,12 +11,12 @@ sudo parted "$DISK" -- set 1 esp on
 #sudo mkswap -L SWAP "$DISK"2
 #sudo swapon "$DISK"2
 sudo parted "$DISK" -- mkpart primary 512MB 100%
-sudo mkfs.fat -F 32 -n BOOT  "$DISK"1
+sudo mkfs.fat -F 32 -n BOOT  "$DISK"p1
 
 # encrypt
-sudo cryptsetup luksFormat "$DISK"3
-sudo cryptsetup luksConfig "$DISK"3 --label NIXOS
-sudo cryptsetup luksOpen "$DISK"3 crypted
+sudo cryptsetup luksFormat "$DISK"p2
+sudo cryptsetup luksConfig "$DISK"p2 --label NIXOS
+sudo cryptsetup luksOpen "$DISK"p2 crypted
 
 # btrfs
 sudo mkfs.btrfs -L ButterFS "$MAPPER"
@@ -46,7 +46,7 @@ sudo mkdir -p /mnt/var/log
 sudo mount -o subvol=log,compress=zstd,noatime "$MAPPER" /mnt/var/log
 
 sudo mkdir /mnt/boot
-sudo mount "$DISK"1 /mnt/boot -o umask=0077
+sudo mount "$DISK"p1 /mnt/boot -o umask=0077
 
 sudo nixos-generate-config --root /mnt
 NIX_CONFIG="nixpkgs.config.allowUnfree = true"
