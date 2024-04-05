@@ -67,6 +67,10 @@
     thunderbird
   ];
 
+programs.steam = {
+  enable = true;
+};
+
  programs.tmux = {
   enable = true;
   clock24 = true;
