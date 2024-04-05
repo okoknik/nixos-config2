@@ -104,7 +104,6 @@
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
       packages = with pkgs; [
-        nixvim
       ];
     };
   };
@@ -117,6 +116,7 @@
   #    discover
       git
       (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
+      nixvim
    ];
 
   xdg = {
