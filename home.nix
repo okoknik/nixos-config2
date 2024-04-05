@@ -75,6 +75,10 @@
   '';
 };
 
+programs.neovim = {
+  enable = true;
+};
+
  programs.vscode = {
   enable = true;
   extensions = with pkgs.vscode-extensions; [
