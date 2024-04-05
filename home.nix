@@ -59,6 +59,7 @@
     du-dust  # disk space analyzer
     pciutils # lspci
     usbutils # lsusb
+    lshw # hardware stats
 
     # programs
     bitwarden-desktop
