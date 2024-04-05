@@ -26,7 +26,7 @@
   # can be referenced by their names. 
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
-  outputs = { self, nixpkgs, home-manager, impermanence, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, impermanence, nixvim, ... }@inputs: {
     devShells.x86_64-linux.latest = nixpkgs.mkShell {
         packages = [
           nixpkgs.python3
