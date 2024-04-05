@@ -172,7 +172,7 @@ hardware.nvidia = {
 			enableOffloadCmd = true;
 		};
 		# Make sure to use the correct Bus ID values for your system!
-		intelBusId = "PCI:00:02.0";
+		intelBusId = "PCI:00:02:0";
 		nvidiaBusId = "PCI:14:0:0";
 	};
   };
