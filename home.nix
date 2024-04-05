@@ -65,6 +65,7 @@
     zotero
     teams-for-linux
     thunderbird
+    tmux
   ];
 
  programs.vscode = {
