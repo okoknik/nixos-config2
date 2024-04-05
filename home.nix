@@ -60,6 +60,8 @@
     pciutils # lspci
     usbutils # lsusb
     lshw # hardware stats
+    clinfo # opencl stats
+    glxinfo # opengl stats
 
     # programs
     bitwarden-desktop
