@@ -103,7 +103,9 @@
       homeMode = "755";
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-      packages = with pkgs; [];
+      packages = with pkgs; [
+        nixvim
+      ];
     };
   };
 

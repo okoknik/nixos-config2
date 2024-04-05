@@ -38,7 +38,6 @@
         # specialArgs = {...};  # pass custom arguments into all sub module.
         modules = [
           ./configuration.nix
-          nixvim.homeManagerModules.nixvim
 		      home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -46,6 +45,7 @@
             home-manager.users.niklas = import ./home.nix;
           }
           impermanence.nixosModules.impermanence
+          nixvim.nixosModules.nixvim
         ];
       };
     };
