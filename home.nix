@@ -20,11 +20,11 @@
     enable = true;
     userName = "simstuff";
     userEmail = "oetkenniklas@gmail.com";
-    #config = {
-     # defaultBranch = "main";
-      #gpg.format = "ssh";
-      #user.signingkey = "~/.ssh/id_rsa.pub";
-    #};
+    extraConfig = {
+     defaultBranch = "main";
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/id_ed25519.pub";
+    };
   };
 
   # Packages that should be installed to the user profile.
