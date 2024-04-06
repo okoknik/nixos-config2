@@ -44,10 +44,22 @@
   ];
 
   # Docker
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-    storageDriver = "btrfs"
+  virtualisation.docker = {
+    enable = true;  
+    enableNvidia = true;
+
+    rootless = {
+			enable = true;
+			setSocketVariable = true;
+      storageDriver = "btrfs";
+            daemon.settings = {
+				runtimes = {
+					nvidia = {
+            			path = "${pkgs.nvidia-docker}/bin/nvidia-container-runtime";
+          			};
+				};
+    };
+	  users.extraGroups.docker.members = [ "niklas" ];
   };
 
 
