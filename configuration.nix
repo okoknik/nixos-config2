@@ -15,7 +15,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # plymouth
-  boot.plymouth.enable = true;
+  #boot.plymouth.enable = true;
 
   # firmware
   services.fwupd.enable = true;
