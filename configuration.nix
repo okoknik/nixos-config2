@@ -14,6 +14,15 @@
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # plymouth
+  boot.plymouth.enable = true;
+
+  # firmware
+  services.fwupd.enable = true;
+
+  # qmk
+  hardware.keyboard.qmk.enable = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
