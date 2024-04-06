@@ -44,7 +44,7 @@
   ];
 
   # optimize nix-store
-  nix.settings.auto-optimize-store = true;
+  nix.settings.auto-optimise-store = true;
 
   # garbage collection
   nix.gc = {
