@@ -48,11 +48,11 @@ virtualisation.docker = {
 		enable = true;
 		enableOnBoot = false;
 		enableNvidia = true;
+    storageDriver = "btrfs";
 
 		rootless = {
 			enable = true;
 			setSocketVariable = false;
-      storageDriver = "btrfs";
 			daemon.settings = {
 				runtimes = {
 					nvidia = {
