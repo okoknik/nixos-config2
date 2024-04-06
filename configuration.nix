@@ -44,22 +44,24 @@
   ];
 
   # Docker
-  virtualisation.docker = {
-    enable = true;  
-    enableNvidia = true;
+virtualisation.docker = {
+		enable = true;
+		enableOnBoot = false;
+		enableNvidia = true;
 
-    rootless = {
+		rootless = {
 			enable = true;
 			setSocketVariable = false;
       storageDriver = "btrfs";
-      daemon.settings = {
+			daemon.settings = {
 				runtimes = {
 					nvidia = {
-            			path = "${pkgs.nvidia-docker}/bin/nvidia-container-runtime";
-          			};
+						path = "${pkgs.nvidia-docker}/bin/nvidia-container-runtime";
+					};
 				};
-    };
-  };
+			};
+		};
+	};
 
 
   # optimize nix-store
