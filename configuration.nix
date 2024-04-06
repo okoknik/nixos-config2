@@ -47,6 +47,7 @@
   virtualisation.docker.rootless = {
     enable = true;
     setSocketVariable = true;
+    storageDriver = "btrfs"
   };
 
 
