@@ -86,6 +86,17 @@
   ];
 };
 
+ programs.neovim = {
+  enable = true;
+  plugins = [
+  pkgs.vimPlugins.nvim-tree-lua
+  {
+    plugin = pkgs.vimPlugins.vim-startify;
+    config = "let g:startify_change_to_vcs_root = 0";
+  }
+  ];
+ }
+
   # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;

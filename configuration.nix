@@ -33,6 +33,15 @@
     "cros-usbpd-charger"
   ];
 
+  # optimize nix-store
+  nix.settings.auto-optimize-store = true;
+
+  # garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
 
   networking.hostName = "framework"; # Define your hostname.
   # Pick only one of the below networking options.
