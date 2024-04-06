@@ -59,7 +59,6 @@
           			};
 				};
     };
-	  users.extraGroups.docker.members = [ "niklas" ];
   };
 
 
@@ -141,7 +140,7 @@
     users.niklas = {
       homeMode = "755";
       isNormalUser = true;
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" ];
       packages = with pkgs; [
       ];
     };
