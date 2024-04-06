@@ -95,7 +95,7 @@
     config = "let g:startify_change_to_vcs_root = 0";
   }
   ];
- }
+ };
 
   # starship - an customizable prompt for any shell
   programs.starship = {
