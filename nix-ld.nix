@@ -9,7 +9,6 @@
     at-spi2-atk
     at-spi2-core
     atk
-    caironixvim
     cups
     curl
     dbus
