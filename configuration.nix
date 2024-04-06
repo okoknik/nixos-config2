@@ -43,6 +43,13 @@
     "cros-usbpd-charger"
   ];
 
+  # Docker
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
+
   # optimize nix-store
   nix.settings.auto-optimise-store = true;
 

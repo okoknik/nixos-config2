@@ -69,9 +69,6 @@
     teams-for-linux
     thunderbird
     steam
-
-    # cahchix cmd-tool
-    cachix
   ];
 
  programs.tmux = {
