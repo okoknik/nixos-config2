@@ -67,6 +67,9 @@ virtualisation.docker = {
   # optimize nix-store
   nix.settings.auto-optimise-store = true;
 
+  # become trusted user for binary cache
+  nix.settings.trusted-users = [ "@wheel" ];
+
   # garbage collection
   nix.gc = {
     automatic = true;
