@@ -69,7 +69,10 @@
     teams-for-linux
     thunderbird
     steam
+
+    # latex
     texstudio
+    texliveMedium
   ];
 
  programs.tmux = {
@@ -87,8 +90,15 @@
   ];
 };
 
-programs.nixvim = {
+  programs.nixvim = {
     enable = true;
+    colorschemes.tokyonight.enable = true;
+    plugins = {
+      lualine.enable = true;
+      nil.enable = true;
+      treesitter.enable = true;
+      telescope.enable = true;
+    };
 };
   # starship - an customizable prompt for any shell
   programs.starship = {
