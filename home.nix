@@ -69,6 +69,7 @@
     teams-for-linux
     thunderbird
     steam
+    texstudio
   ];
 
  programs.tmux = {
