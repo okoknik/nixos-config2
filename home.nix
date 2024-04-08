@@ -93,6 +93,12 @@
   programs.nixvim = {
     enable = true;
     colorschemes.tokyonight.enable = true;
+    opts = {
+      number = true;         # Show line numbers
+      relativenumber = true; # Show relative line numbers
+
+      shiftwidth = 2;
+    };
     plugins = {
       lualine.enable = true;
       treesitter = {
