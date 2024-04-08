@@ -101,8 +101,19 @@
       softtabstop = 2;
       shiftwidth = 2;
     };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>f";
+        options.silent = true;
+        action = ":Neotree filesystem reveal right";
+      }
+    ];
     plugins = {
       lualine.enable = true;
+      neo-tree = {
+
+      };
       treesitter = {
         enable = true;
         ensureInstalled = "all";
