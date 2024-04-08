@@ -100,7 +100,7 @@
         ensureInstalled = "all";
         indent = true;
         nixGrammars = true;
-        grammarPackages = [ bibtex-grammar css-grammar json-grammar];
+        grammarPackages = [ bibtex-grammar css-grammar json-grammar python-grammar rst-grammar dockerfile-grammar ];
       };
       telescope.enable = true;
     };
