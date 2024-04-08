@@ -95,7 +95,6 @@
     colorschemes.tokyonight.enable = true;
     plugins = {
       lualine.enable = true;
-      nil.enable = true;
       treesitter.enable = true;
       telescope.enable = true;
     };
