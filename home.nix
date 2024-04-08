@@ -121,7 +121,7 @@
         servers = {
           dockerls.enable = true;
           html.enable = true;
-          nils.enable = true;
+          nild.enable = true;
           pyright.enable = true;
           sqls.enable = true;
           jsonls.enable = true;
