@@ -109,10 +109,23 @@
         action = ":Neotree filesystem reveal right";
       }
     ];
+    
     plugins = {
       lualine.enable = true;
       neo-tree = {
         enable = true;
+      };
+      # language servers
+      lsp = {
+        enable = true;
+        servers = {
+          dockerls.enable = true;
+          html.enable = true;
+          nils.enable = true;
+          pyright.enable = true;
+          sqls.enable = true;
+          jsonls.enable = true;
+        };
       };
       treesitter = {
         enable = true;
