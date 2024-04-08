@@ -112,7 +112,7 @@
     plugins = {
       lualine.enable = true;
       neo-tree = {
-
+        enable = true;
       };
       treesitter = {
         enable = true;
