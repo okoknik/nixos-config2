@@ -212,7 +212,7 @@
       alpha = {
         enable = true;
         iconsEnabled = true;
-        theme = "dashboard;
+        theme = "dashboard";
       };
     };
 };
