@@ -15,6 +15,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    } 
     impermanence.url = "github:nix-community/impermanence";
   };
 
@@ -22,12 +26,7 @@
   # can be referenced by their names. 
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
-  outputs = { self, nixpkgs, home-manager, impermanence, ... }@inputs: {
-    devShells.x86_64-linux.latest = nixpkgs.mkShell {
-        packages = [
-          nixpkgs.python3
-        ];
-      };
+  outputs = { self, nixpkgs, home-manager, impermanence, nixvim, ... }@inputs: {
     nixosConfigurations = {
       "framework" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -35,6 +34,7 @@
         modules = [
           ./configuration.nix
 		      home-manager.nixosModules.home-manager
+          nixvim.homeManagerModules.nixvim
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
