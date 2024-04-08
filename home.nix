@@ -102,11 +102,62 @@
       shiftwidth = 2;
     };
     keymaps = [
+      # Neotree file manager shortcut
       {
         mode = "n";
         key = "<C-f>";
         options.silent = true;
         action = ":Neotree filesystem reveal right";
+      }
+      # LSP hover()
+      {
+        mode = "n";
+        key = "K";
+        options.silent = true;
+        action = "vim.lsp.buf.hover";
+      }
+      {
+        mode = "n";
+        key = "gd";
+        options.silent = true;
+        action = "vim.lsp.buf.definition";
+      }
+      {
+        mode = "n";
+        key = "v";
+        options.silent = true;
+        action = "vim.lsp.buf.codeaction";
+      }
+      {
+        mode = "n";
+        key = "gi";
+        options.silent = true;
+        action = "vim.lsp.buf.implementation";
+      }
+      # Telescope keybinds
+      {
+        mode = "n";
+        key = "'<leader>ff'";
+        options.silent = true;
+        action = "Telescope find_files";
+      }
+      {
+        mode = "n";
+        key = "<leader>fg";
+        options.silent = true;
+        action = "Telescope live_grep";
+      }
+      {
+        mode = "n";
+        key = "<leader>fh";
+        options.silent = true;
+        action = "Telescope help_tags";
+      }
+      {
+        mode = "n";
+        key = "<leader>fb";
+        options.silent = true;
+        action = "Telescope buffers";
       }
     ];
     
@@ -134,7 +185,12 @@
         nixGrammars = true;
         #grammarPackages = with treesitter.grammarPackages; [ bibtex-grammar css-grammar json-grammar python-grammar rst-grammar dockerfile-grammar ];
       };
-      telescope.enable = true;
+      telescope = {
+        enable = true;
+        extensions = {
+          ui-select.enable = true;
+        }
+      };
     };
 };
   # starship - an customizable prompt for any shell
