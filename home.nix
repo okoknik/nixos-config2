@@ -96,7 +96,9 @@
     opts = {
       number = true;         # Show line numbers
       relativenumber = true; # Show relative line numbers
-
+      expandtab = true;
+      tabstop = 2;
+      softtabstop = 2;
       shiftwidth = 2;
     };
     plugins = {
