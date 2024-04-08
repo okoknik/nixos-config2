@@ -95,7 +95,13 @@
     colorschemes.tokyonight.enable = true;
     plugins = {
       lualine.enable = true;
-      treesitter.enable = true;
+      treesitter = {
+        enable = true;
+        ensureInstalled = "all";
+        indent = true;
+        nixGrammars = true;
+        grammarPackages = [ bibtex-grammar css-grammar json-grammar];
+      };
       telescope.enable = true;
     };
 };
