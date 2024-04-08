@@ -104,7 +104,7 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader>f";
+        key = "<C-f>";
         options.silent = true;
         action = ":Neotree filesystem reveal right";
       }
