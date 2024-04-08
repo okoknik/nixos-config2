@@ -34,7 +34,7 @@
         modules = [
           ./configuration.nix
 		      home-manager.nixosModules.home-manager
-          nixvim.homeManagerModules.nixvim
+          
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
