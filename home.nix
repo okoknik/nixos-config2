@@ -162,7 +162,10 @@
     ];
     
     plugins = {
-      lualine.enable = true;
+      lualine = {
+        enable = true;
+        globalstatus = true;
+      };
       neo-tree = {
         enable = true;
       };
@@ -178,6 +181,21 @@
           jsonls.enable = true;
         };
       };
+      lint = {
+        enable = true;
+        lintersByFt = 
+         {
+          text = ["vale"];
+          json = ["jsonlint"];
+          markdown = ["vale"];
+          python = ["pylint"];
+          rst = ["vale"];
+          dockerfile = ["hadolint"];
+          terraform = ["tflint"];
+        }
+      };
+      # formatting
+      lsp-format.enable = true;
       treesitter = {
         enable = true;
         ensureInstalled = "all";
