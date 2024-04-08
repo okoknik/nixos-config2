@@ -20,7 +20,6 @@
     gdk-pixbuf
     glib
     gtk3
-    qt5
     icu
     libGL
     libappindicator-gtk3
