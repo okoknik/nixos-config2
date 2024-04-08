@@ -192,7 +192,7 @@
           rst = ["vale"];
           dockerfile = ["hadolint"];
           terraform = ["tflint"];
-        }
+        };
       };
       # formatting
       lsp-format.enable = true;
