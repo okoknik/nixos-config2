@@ -11,6 +11,7 @@
     atk
     cups
     curl
+    cudatoolkit
     dbus
     expat
     fontconfig
@@ -19,6 +20,7 @@
     gdk-pixbuf
     glib
     gtk3
+    qt6
     icu
     libGL
     libappindicator-gtk3
