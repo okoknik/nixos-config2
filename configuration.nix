@@ -43,6 +43,10 @@
     "cros-usbpd-charger"
   ];
 
+  # Ollama
+services.ollama = {
+  enable = true;
+};
   # Docker
 virtualisation.docker = {
 		enable = true;
