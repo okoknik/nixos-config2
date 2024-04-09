@@ -200,6 +200,10 @@
         actions.useSystemClipboard = true;
         view.side = "right"; 
       };
+      # shows keybindings
+      which-key = {
+        enable = true;
+      };
 # language servers
       lsp = {
         enable = true;
