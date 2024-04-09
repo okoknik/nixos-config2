@@ -197,7 +197,6 @@
       };
       neo-tree = {
         enable = true;
-        buffers.bindToCWD = true;
       };
 # language servers
       lsp = {
