@@ -263,7 +263,7 @@
           model = "codegemma";
           action = "display";
         };
-      }
+      };
     };
   };
 # starship - an customizable prompt for any shell
