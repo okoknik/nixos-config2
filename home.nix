@@ -79,12 +79,9 @@
     enable = true;
     clock24 = true;
     baseIndex = 1;
+    extraConfig = "run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/sidebar/sidebar.tmux"
     plugins = with pkgs; [
       tmuxPlugins.cpu
-      {
-        plugin = tmuxPlugins.resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-      }
     {
       plugin = tmuxPlugins.catppuccin;
       extraConfig = ''
@@ -109,6 +106,10 @@
         set -g @catppuccin_directory_text "#{pane_current_path}"      
         '';
     }
+       {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+      }
     ];
   
 };
