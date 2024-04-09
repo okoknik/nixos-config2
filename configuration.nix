@@ -132,6 +132,7 @@ virtualisation.docker = {
   mplus-outline-fonts.githubRelease
   dina-font
   proggyfonts
+  nerdfonts
 ];
 
   # Enable CUPS to print documents.
