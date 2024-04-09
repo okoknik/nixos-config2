@@ -153,12 +153,12 @@
     }
     {
       mode = "n";
-      key = "v";
+      key = "ca";
       options.silent = true;
       action = "vim.lsp.buf.codeaction";
     }
     {
-      camode = "n";
+      mode = "n";
       key = "gi";
       options.silent = true;
       action = "vim.lsp.buf.implementation";
