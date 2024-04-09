@@ -77,7 +77,37 @@
 
  programs.tmux = {
   enable = true;
-  #clock24 = true;
+  clock24 = true;
+  plugins = with pkgs; [
+  tmuxPlugins.cpu
+  {
+    plugin = tmuxPlugins.resurrect;
+    extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+  }
+  {
+    plugin = tmuxPlugins.catppuccin;
+    extraConfig = ''
+      set -g @catppuccin_window_left_separator ""
+      set -g @catppuccin_window_right_separator " "
+      set -g @catppuccin_window_middle_separator " █"
+      set -g @catppuccin_window_number_position "right"
+      set -g @catppuccin_window_default_fill "number"
+      set -g @catppuccin_window_default_text "#W"
+      set -g @catppuccin_window_current_fill "number"
+      set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
+      set -g @catppuccin_status_modules_right "directory meetings date_time"
+      set -g @catppuccin_status_modules_left "session"
+      set -g @catppuccin_status_left_separator  " "
+      set -g @catppuccin_status_right_separator " "
+      set -g @catppuccin_status_right_separator_inverse "no"
+      set -g @catppuccin_status_fill "icon"
+      set -g @catppuccin_status_connect_separator "no"
+      set -g @catppuccin_directory_text "#{b:pane_current_path}"
+      set -g @catppuccin_meetings_text "#($HOME/.config/tmux/scripts/cal.sh)"
+      set -g @catppuccin_date_time_text "%H:%M"
+    '';
+  }
+]
   extraConfig = '' # used for less common options, intelligently combines if defined in multiple places.
     ...
   '';
@@ -92,7 +122,7 @@
 
   programs.nixvim = {
     enable = true;
-    colorschemes.tokyonight.enable = true;
+    colorschemes.catppuccin.enable = true;
     opts = {
       number = true;         # Show line numbers
       relativenumber = true; # Show relative line numbers
