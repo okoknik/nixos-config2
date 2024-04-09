@@ -195,8 +195,10 @@
         enable = true;
         globalstatus = true;
       };
-      neo-tree = {
+      nvim-tree = {
         enable = true;
+        actions.useSystemClipboard = true;
+        view.side = "right"; 
       };
 # language servers
       lsp = {
