@@ -257,6 +257,14 @@
         iconsEnabled = true;
         theme = "startify";
       };
+      # ollama codegemma
+      {
+        ollama = {
+          enable = true;
+          model = "codegemma";
+          action = "display";
+        };
+      }
     };
   };
 # starship - an customizable prompt for any shell
