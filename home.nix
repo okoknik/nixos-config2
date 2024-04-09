@@ -121,6 +121,7 @@
 
   programs.nixvim = {
     enable = true;
+    globals.mapleader = " ";
     colorschemes.catppuccin.enable = true;
     opts = {
       number = true;         # Show line numbers
