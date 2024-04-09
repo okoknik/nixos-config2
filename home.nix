@@ -78,6 +78,7 @@
  programs.tmux = {
   enable = true;
   clock24 = true;
+  baseIndex = 1;
   plugins = with pkgs; [
   tmuxPlugins.cpu
   {
@@ -107,7 +108,7 @@
       set -g @catppuccin_date_time_text "%H:%M"
     '';
   }
-]
+];
   extraConfig = '' # used for less common options, intelligently combines if defined in multiple places.
     ...
   '';
