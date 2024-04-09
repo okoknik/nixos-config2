@@ -79,7 +79,7 @@
     enable = true;
     clock24 = true;
     baseIndex = 1;
-    extraConfig = "run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/sidebar/sidebar.tmux"
+    #extraConfig = "run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/sidebar/sidebar.tmux"
     plugins = with pkgs; [
       tmuxPlugins.cpu
     {
