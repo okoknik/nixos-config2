@@ -258,7 +258,6 @@
         theme = "startify";
       };
       # ollama codegemma
-      {
         ollama = {
           enable = true;
           model = "codegemma";
