@@ -121,6 +121,19 @@ virtualisation.docker = {
   # Configure Flatpak
   # services.flatpak.enable = true;
 
+  # fonts
+  fonts.packages = with pkgs; [
+  noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  liberation_ttf
+  fira-code
+  fira-code-symbols
+  mplus-outline-fonts.githubRelease
+  dina-font
+  proggyfonts
+];
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
