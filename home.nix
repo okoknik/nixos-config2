@@ -110,7 +110,8 @@
         '';
     }
     ];
-  };
+  
+};
 
   programs.vscode = {
     enable = true;
@@ -123,6 +124,7 @@
     enable = true;
     globals.mapleader = " ";
     colorschemes.catppuccin.enable = true;
+    clipboard.register = "unnamedplus";
     opts = {
       number = true;         # Show line numbers
         relativenumber = true; # Show relative line numbers
