@@ -1,21 +1,21 @@
 { config, pkgs, ... }:
 
 {
-  # TODO please change the username & home direcotry to your own
+# TODO please change the username & home direcotry to your own
 
   home.username = "niklas";
   home.homeDirectory = "/home/niklas";
 
-  # link the configuration file in current directory to the specified location in home directory
+# link the configuration file in current directory to the specified location in home directory
 
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
+# link all files in `./scripts` to `~/.config/i3/scripts`
+# home.file.".config/i3/scripts" = {
+#   source = ./scripts;
+#   recursive = true;   # link recursively
+#   executable = true;  # make all files executable
+# };
 
-  # basic configuration of git, please change to your own
+# basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "simstuff";
@@ -27,169 +27,169 @@
     };
   };
 
-  # Packages that should be installed to the user profile.
+# Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
+# here is some command line tools I use frequently
+# feel free to add your own or remove some of them
 
     neofetch
 
-    # archives
-    zip
+# archives
+      zip
 
-    # networking tools
-    dnsutils  # `dig` + `nslookup`
-    nmap # A utility for network discovery and security auditing
-    mtr # A network diagnostic tool
+# networking tools
+      dnsutils  # `dig` + `nslookup`
+      nmap # A utility for network discovery and security auditing
+      mtr # A network diagnostic tool
 
-    # utils
-    tree
-    fzf
+# utils
+      tree
+      fzf
 
-    # monitoring
-    btop  # replacement of htop/nmon
-    iotop # io monitoring
-    iftop # network monitoring
+# monitoring
+      btop  # replacement of htop/nmon
+      iotop # io monitoring
+      iftop # network monitoring
 
-    # system tools
-    sysstat
-    lm_sensors # for `sensors` command
-    ethtool
-    powertop # battery
-    du-dust  # disk space analyzer
-    pciutils # lspci
-    usbutils # lsusb
-    lshw # hardware stats
-    clinfo # opencl stats
-    glxinfo # opengl stats
+# system tools
+      sysstat
+      lm_sensors # for `sensors` command
+      ethtool
+      powertop # battery
+      du-dust  # disk space analyzer
+      pciutils # lspci
+      usbutils # lsusb
+      lshw # hardware stats
+      clinfo # opencl stats
+      glxinfo # opengl stats
 
-    # programs
-    bitwarden-desktop
-    zotero
-    teams-for-linux
-    thunderbird
-    steam
+# programs
+      bitwarden-desktop
+      zotero
+      teams-for-linux
+      thunderbird
+      steam
 
-    # latex
-    texstudio
-    texliveMedium
-  ];
+# latex
+      texstudio
+      texliveMedium
+      ];
 
- programs.tmux = {
-  enable = true;
-  clock24 = true;
-  baseIndex = 1;
-  plugins = with pkgs; [
-  tmuxPlugins.cpu
-  {
-    plugin = tmuxPlugins.resurrect;
-    extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-  }
-  {
-    plugin = tmuxPlugins.catppuccin;
-    extraConfig = ''
-set -g @catppuccin_window_left_separator ""
-set -g @catppuccin_window_right_separator " "
-set -g @catppuccin_window_middle_separator " █"
-set -g @catppuccin_window_number_position "right"
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    baseIndex = 1;
+    plugins = with pkgs; [
+      tmuxPlugins.cpu
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+      }
+    {
+      plugin = tmuxPlugins.catppuccin;
+      extraConfig = ''
+        set -g @catppuccin_window_left_separator ""
+        set -g @catppuccin_window_right_separator " "
+        set -g @catppuccin_window_middle_separator " █"
+        set -g @catppuccin_window_number_position "right"
 
-set -g @catppuccin_window_default_fill "number"
-set -g @catppuccin_window_default_text "#W"
+        set -g @catppuccin_window_default_fill "number"
+        set -g @catppuccin_window_default_text "#W"
 
-set -g @catppuccin_window_current_fill "number"
-set -g @catppuccin_window_current_text "#W"
+        set -g @catppuccin_window_current_fill "number"
+        set -g @catppuccin_window_current_text "#W"
 
-set -g @catppuccin_status_modules_right "directory user host cpu session date_time"
-set -g @catppuccin_status_left_separator  " "
-set -g @catppuccin_status_right_separator ""
-set -g @catppuccin_status_right_separator_inverse "no"
-set -g @catppuccin_status_fill "icon"
-set -g @catppuccin_status_connect_separator "no"
+        set -g @catppuccin_status_modules_right "directory user host cpu session date_time"
+        set -g @catppuccin_status_left_separator  " "
+        set -g @catppuccin_status_right_separator ""
+        set -g @catppuccin_status_right_separator_inverse "no"
+        set -g @catppuccin_status_fill "icon"
+        set -g @catppuccin_status_connect_separator "no"
 
-set -g @catppuccin_directory_text "#{pane_current_path}"      
-    '';
-  }
-];
-};
+        set -g @catppuccin_directory_text "#{pane_current_path}"      
+        '';
+    }
+    ];
+  };
 
- programs.vscode = {
-  enable = true;
-  extensions = with pkgs.vscode-extensions; [
-    ms-python.python
-  ];
-};
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      ms-python.python
+    ];
+  };
 
   programs.nixvim = {
     enable = true;
     colorschemes.catppuccin.enable = true;
     opts = {
       number = true;         # Show line numbers
-      relativenumber = true; # Show relative line numbers
-      expandtab = true;
+        relativenumber = true; # Show relative line numbers
+        expandtab = true;
       tabstop = 2;
       softtabstop = 2;
       shiftwidth = 2;
     };
     keymaps = [
-      # Neotree file manager shortcut
-      {
-        mode = "n";
-        key = "<C-f>";
-        options.silent = true;
-        action = ":Neotree filesystem reveal right";
-      }
-      # LSP hover()
-      {
-        mode = "n";
-        key = "K";
-        options.silent = true;
-        action = "vim.lsp.buf.hover";
-      }
-      {
-        mode = "n";
-        key = "gd";
-        options.silent = true;
-        action = "vim.lsp.buf.definition";
-      }
-      {
-        mode = "n";
-        key = "v";
-        options.silent = true;
-        action = "vim.lsp.buf.codeaction";
-      }
-      {
-        mode = "n";
-        key = "gi";
-        options.silent = true;
-        action = "vim.lsp.buf.implementation";
-      }
-      # Telescope keybinds
-      {
-        mode = "n";
-        key = "'<leader>ff'";
-        options.silent = true;
-        action = "Telescope find_files";
-      }
-      {
-        mode = "n";
-        key = "<leader>fg";
-        options.silent = true;
-        action = "Telescope live_grep";
-      }
-      {
-        mode = "n";
-        key = "<leader>fh";
-        options.silent = true;
-        action = "Telescope help_tags";
-      }
-      {
-        mode = "n";
-        key = "<leader>fb";
-        options.silent = true;
-        action = "Telescope buffers";
-      }
+# Neotree file manager shortcut
+    {
+      mode = "n";
+      key = "<C-f>";
+      options.silent = true;
+      action = ":Neotree filesystem reveal right";
+    }
+# LSP hover()
+    {
+      mode = "n";
+      key = "K";
+      options.silent = true;
+      action = "vim.lsp.buf.hover";
+    }
+    {
+      mode = "n";
+      key = "gd";
+      options.silent = true;
+      action = "vim.lsp.buf.definition";
+    }
+    {
+      mode = "n";
+      key = "ca";
+      options.silent = true;
+      action = "vim.lsp.buf.codeaction";
+    }
+    {
+      camode = "n";
+      key = "gi";
+      options.silent = true;
+      action = "vim.lsp.buf.implementation";
+    }
+# Telescope keybinds
+    {
+      mode = "n";
+      key = "'<leader>ff'";
+      options.silent = true;
+      action = ":Telescope find_files";
+    }
+    {
+      mode = "n";
+      key = "<leader>fg";
+      options.silent = true;
+      action = ":Telescope live_grep";
+    }
+    {
+      mode = "n";
+      key = "<leader>fh";
+      options.silent = true;
+      action = ":Telescope help_tags";
+    }
+    {
+      mode = "n";
+      key = "<leader>fb";
+      options.silent = true;
+      action = ":Telescope buffers";
+    }
     ];
-    
+
     plugins = {
       lualine = {
         enable = true;
@@ -197,8 +197,9 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
       };
       neo-tree = {
         enable = true;
+        buffers.bindToCWD = true;
       };
-      # language servers
+# language servers
       lsp = {
         enable = true;
         servers = {
@@ -213,7 +214,7 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
       lint = {
         enable = true;
         lintersByFt = 
-         {
+        {
           text = ["vale"];
           json = ["jsonlint"];
           markdown = ["vale"];
@@ -223,7 +224,7 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
           terraform = ["tflint"];
         };
       };
-      # formatting
+# formatting
       lsp-format.enable = true;
       treesitter = {
         enable = true;
@@ -237,18 +238,18 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
           ui-select.enable = true;
         };
       };
-      # Dashboard
+# Dashboard
       alpha = {
         enable = true;
         iconsEnabled = true;
-        theme = "dashboard";
+        theme = "startify";
       };
     };
-};
-  # starship - an customizable prompt for any shell
+  };
+# starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;
-    # custom settings
+# custom settings
     settings = {
       add_newline = false;
       aws.disabled = true;
@@ -257,10 +258,10 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
     };
   };
 
-  # alacritty - a cross-platform, GPU-accelerated terminal emulator
+# alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
     enable = true;
-    # custom settings
+# custom settings
     settings = {
       env.TERM = "xterm-256color";
       font = {
@@ -274,30 +275,30 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
   programs.bash = {
     enable = true;
     enableCompletion = true;
- 
+
   };
 
-  # direnv for development
+# direnv for development
   programs.direnv = {
-      enable = true;
-      enableBashIntegration = true; 
-      nix-direnv.enable = true;
-    };
+    enable = true;
+    enableBashIntegration = true; 
+    nix-direnv.enable = true;
+  };
 
 
-  # Create XDG Dirs
+# Create XDG Dirs
   xdg = {
     userDirs = {
-        enable = true;
-        createDirectories = true;
+      enable = true;
+      createDirectories = true;
     };
   };
 
-  # You can update home Manager without changing this value. See
-  # the home Manager release notes for a list of state version
-  # changes in each release.
+# You can update home Manager without changing this value. See
+# the home Manager release notes for a list of state version
+# changes in each release.
   home.stateVersion = "23.11";
 
-  # Let home Manager install and manage itself.
+# Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
