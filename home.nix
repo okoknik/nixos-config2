@@ -109,9 +109,6 @@
     '';
   }
 ];
-  extraConfig = '' # used for less common options, intelligently combines if defined in multiple places.
-    ...
-  '';
 };
 
  programs.vscode = {
