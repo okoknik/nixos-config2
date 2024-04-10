@@ -110,7 +110,7 @@
 
   programs.nixvim = {
     enable = true;
-    autoCMD = [
+    autoCmd = [
     {
       event = [ "BufEnter" ];
       pattern = [ "*" ];
