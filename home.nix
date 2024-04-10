@@ -79,26 +79,27 @@
     enable = true;
     clock24 = true;
     baseIndex = 1;
-    #extraConfig = "run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/sidebar/sidebar.tmux"
+#extraConfig = "run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/sidebar/sidebar.tmux"
     plugins = with pkgs; [
       tmuxPlugins.cpu
-    {
-      plugin = tmuxPlugins.catppuccin;
-      extraConfig = ''
-        set -g @catppuccin_status_modules_right "directory date_time cpu"
-        set -g @catppuccin_directory_text "#{b:pane_current_path}"
-    }
-       {
-        plugin = tmuxPlugins.resurrect;
+      {
+        plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
-            set -g @resurrect-strategy-vim 'session'
-            set -g @resurrect-strategy-nvim 'session'
-            set -g @resurrect-capture-pane-contents 'on'
+          set -g @catppuccin_status_modules_right "directory date_time cpu"
+          set -g @catppuccin_directory_text "#{b:pane_current_path}"
           '';
       }
+    {
+      plugin = tmuxPlugins.resurrect;
+      extraConfig = ''
+        set -g @resurrect-strategy-vim 'session'
+        set -g @resurrect-strategy-nvim 'session'
+        set -g @resurrect-capture-pane-contents 'on'
+        '';
+    }
     ];
-  
-};
+
+  };
 
   programs.vscode = {
     enable = true;
@@ -110,19 +111,19 @@
   programs.nixvim = {
     enable = true;
     autoCMD = [
-      {
+    {
       event = [ "BufEnter" ];
       pattern = [ "*" ];
       command = "silent! :lcd%:p:h";
-      }
+    }
     ];
     globals.mapleader = " ";
     colorschemes.catppuccin.enable = true;
     clipboard.register = "unnamed";
     opts = {
-      number = true;         # Show line numbers
-        relativenumber = true; # Show relative line numbers
-        expandtab = true;
+      number = true;        
+      relativenumber = true; 
+      expandtab = true;
       tabstop = 2;
       softtabstop = 2;
       shiftwidth = 2;
@@ -197,7 +198,7 @@
         actions.useSystemClipboard = true;
         view.side = "right"; 
       };
-      # shows keybindings
+# shows keybindings
       which-key = {
         enable = true;
       };
@@ -246,15 +247,15 @@
         iconsEnabled = true;
         theme = "startify";
       };
-      # ollama codegemma
-        ollama = {
-          enable = true;
-          model = "codegemma";
-          action = "display";
-        };
+# ollama codegemma
+      ollama = {
+        enable = true;
+        model = "codegemma";
+        action = "display";
       };
     };
-    
+  };
+
 # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;
