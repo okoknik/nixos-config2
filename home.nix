@@ -80,7 +80,9 @@
     clock24 = true;
     baseIndex = 1;
     plugins = with pkgs; [
-      tmuxPlugins.cpu
+      {
+      plugin = tmuxPlugins.cpu;
+      }
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
