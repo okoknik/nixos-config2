@@ -84,6 +84,9 @@
       tmuxPlugins.cpu
     {
       plugin = tmuxPlugins.catppuccin;
+      extraConfig = ''
+        set -g @catppuccin_status_modules_right "directory date_time cpu"
+        set -g @catppuccin_directory_text "#{b:pane_current_path}"
     }
        {
         plugin = tmuxPlugins.resurrect;
@@ -106,9 +109,16 @@
 
   programs.nixvim = {
     enable = true;
+    autoCMD = [
+      {
+      event = [ "BufEnter" ];
+      pattern = [ "*" ];
+      command = "silent! :lcd%:p:h";
+      }
+    ];
     globals.mapleader = " ";
     colorschemes.catppuccin.enable = true;
-    clipboard.register = "unnamedplus";
+    clipboard.register = "unnamed";
     opts = {
       number = true;         # Show line numbers
         relativenumber = true; # Show relative line numbers
