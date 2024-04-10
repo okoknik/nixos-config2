@@ -79,7 +79,6 @@
     enable = true;
     clock24 = true;
     baseIndex = 1;
-#extraConfig = "run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/sidebar/sidebar.tmux"
     plugins = with pkgs; [
       tmuxPlugins.cpu
       {
@@ -87,6 +86,7 @@
         extraConfig = ''
           set -g @catppuccin_status_modules_right "directory date_time cpu"
           set -g @catppuccin_directory_text "#{b:pane_current_path}"
+           
           '';
       }
     {
@@ -119,8 +119,8 @@
     ];
     globals.mapleader = " ";
     colorschemes.catppuccin.enable = true;
-    clipboard.register = "unnamed";
     opts = {
+      clipboard = ["unnamedplus"];
       number = true;        
       relativenumber = true; 
       expandtab = true;
