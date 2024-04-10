@@ -152,7 +152,7 @@
       mode = "n";
       key = "<C-f>";
       options.silent = true;
-      action = ":Neotree filesystem reveal right";
+      action = ":NvimTreeOpen";
     }
 # LSP hover()
     {
@@ -182,7 +182,7 @@
 # Telescope keybinds
     {
       mode = "n";
-      key = "'<leader>ff'";
+      key = "<leader>ff";
       options.silent = true;
       action = ":Telescope find_files";
     }
