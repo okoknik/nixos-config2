@@ -212,6 +212,10 @@
         actions.useSystemClipboard = true;
         view.side = "right"; 
       };
+# git
+      gitsigns = {
+        enable = true;
+      };
 # shows keybindings
       which-key = {
         enable = true;
