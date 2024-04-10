@@ -133,6 +133,8 @@
     ];
     globals.mapleader = " ";
     colorschemes.catppuccin.enable = true;
+# for clipboard usage
+    clipboard.providers.wl-copy.enable = true;
     opts = {
       clipboard = ["unnamedplus"];
       number = true;        
