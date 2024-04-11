@@ -281,8 +281,14 @@
 # services.openssh.enable = true;
 
 # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8384 22000 1714 ];
-  networking.firewall.allowedUDPPorts = [ 22000 21027 1714 ];
+  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  networking.firewall.allowedTCPPortRanges = [ 
+      { from = 1714; to = 1764; } # KDE Connect
+    ];  
+  networking.firewall.allowedUDPPortRanges = [ 
+      { from = 1714; to = 1764; } # KDE Connect
+    ]; 
 # Or disable the firewall altogether.
 # networking.firewall.enable = false;
 
