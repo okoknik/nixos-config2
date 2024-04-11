@@ -75,8 +75,8 @@
       texliveMedium
 # libreoffice
       libreoffice-qt
-# localsend airdrop alternative
-      localsend
+# kdeconnect airdrop alternative
+      kdePackages.kdeconnect-kde     
       ];
 
   programs.tmux = {
