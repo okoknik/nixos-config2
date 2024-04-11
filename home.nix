@@ -73,6 +73,8 @@
 # latex
       texstudio
       texliveMedium
+# libreoffice
+      libreoffice-qt
       ];
 
   programs.tmux = {
