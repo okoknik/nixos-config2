@@ -75,6 +75,8 @@
       texliveMedium
 # libreoffice
       libreoffice-qt
+# localsend airdrop alternative
+      localsend
       ];
 
   programs.tmux = {
