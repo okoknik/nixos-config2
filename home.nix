@@ -18,7 +18,7 @@
 # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "simstuff";
+    userName = "okoknik";
     userEmail = "oetkenniklas@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
@@ -338,3 +338,4 @@
 # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
+
