@@ -43,6 +43,8 @@
     "cros-usbpd-charger"
   ];
 
+# add latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 # Ollama
   services.ollama = {
     enable = true;
