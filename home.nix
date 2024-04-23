@@ -276,7 +276,7 @@
 # ollama codegemma
       ollama = {
         enable = true;
-        model = "codegemma";
+        model = "phi3";
         action = "display";
       };
     };
