@@ -72,7 +72,7 @@
 
 # latex
       texstudio
-      texliveMedium
+      texliveFull
 # libreoffice
       libreoffice-qt
 # kdeconnect airdrop alternative
