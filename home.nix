@@ -69,7 +69,7 @@
       teams-for-linux
       thunderbird
       steam
-
+      pandoc
 # latex
       texstudio
       texliveFull
