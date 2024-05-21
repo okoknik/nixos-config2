@@ -76,8 +76,11 @@
 # libreoffice
       libreoffice-qt
 # kdeconnect airdrop alternative
-      kdePackages.kdeconnect-kde     
-      ];
+      kdePackages.kdeconnect-kde 
+# apptainer
+      apptainer
+
+     ];
 
   programs.tmux = {
     enable = true;
