@@ -77,11 +77,14 @@
       libreoffice-qt
 # kdeconnect airdrop alternative
       kdePackages.kdeconnect-kde 
-# apptainer
-      apptainer
 
      ];
 
+# lutris gaming
+  programs.lutris = {
+    enable = true;
+  };
+  
   programs.tmux = {
     enable = true;
     clock24 = true;
