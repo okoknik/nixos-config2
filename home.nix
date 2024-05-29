@@ -78,12 +78,10 @@
 # kdeconnect airdrop alternative
       kdePackages.kdeconnect-kde 
 
-     ];
-
 # lutris gaming
-  programs.lutris = {
-    enable = true;
-  };
+      lutris 
+      ];
+
   
   programs.tmux = {
     enable = true;
