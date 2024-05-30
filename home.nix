@@ -80,6 +80,7 @@
 
 # lutris gaming
       lutris 
+      winetricks    
       ];
 
   
