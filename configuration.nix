@@ -108,7 +108,6 @@
 
 # Enable the X11 windowing system.
   services = {
-    enable = true;
     displayManager.sddm.wayland.enable = true;
     displayManager.defaultSession = "plasma";
     displayManager.sddm.theme = "breeze";
