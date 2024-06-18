@@ -255,7 +255,7 @@
           json = ["jsonlint"];
           markdown = ["vale"];
           python = ["pylint"];
-          rst = ["rustfmt"];
+          rst = ["clippy"];
           dockerfile = ["hadolint"];
           terraform = ["tflint"];
         };
