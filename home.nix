@@ -83,37 +83,37 @@
       winetricks    
       ];
 
-  
+
   programs.tmux = {
     enable = true;
     clock24 = true;
     baseIndex = 1;
     plugins = with pkgs; [
-      {
+    {
       plugin = tmuxPlugins.cpu;
-      }
-      {
-        plugin = tmuxPlugins.catppuccin;
-        extraConfig = ''
-          set -g @catppuccin_window_left_separator ""
-          set -g @catppuccin_window_right_separator " "
-          set -g @catppuccin_window_middle_separator " █"
-          set -g @catppuccin_window_number_position "right"
-          set -g @catppuccin_window_default_fill "number"
-          set -g @catppuccin_window_default_text "#W"
-          set -g @catppuccin_window_current_fill "number"
-          set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
-          set -g @catppuccin_status_modules_right "directory cpu date_time"
-          set -g @catppuccin_status_modules_left "session"
-          set -g @catppuccin_status_left_separator  " "
-          set -g @catppuccin_status_right_separator " "
-          set -g @catppuccin_status_right_separator_inverse "no"
-          set -g @catppuccin_status_fill "icon"
-          set -g @catppuccin_status_connect_separator "no"
-          set -g @catppuccin_directory_text "#{b:pane_current_path}"
-          set -g @catppuccin_date_time_text "%H:%M"
-          '';
-      }
+    }
+    {
+      plugin = tmuxPlugins.catppuccin;
+      extraConfig = ''
+        set -g @catppuccin_window_left_separator ""
+        set -g @catppuccin_window_right_separator " "
+        set -g @catppuccin_window_middle_separator " █"
+        set -g @catppuccin_window_number_position "right"
+        set -g @catppuccin_window_default_fill "number"
+        set -g @catppuccin_window_default_text "#W"
+        set -g @catppuccin_window_current_fill "number"
+        set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
+        set -g @catppuccin_status_modules_right "directory cpu date_time"
+        set -g @catppuccin_status_modules_left "session"
+        set -g @catppuccin_status_left_separator  " "
+        set -g @catppuccin_status_right_separator " "
+        set -g @catppuccin_status_right_separator_inverse "no"
+        set -g @catppuccin_status_fill "icon"
+        set -g @catppuccin_status_connect_separator "no"
+        set -g @catppuccin_directory_text "#{b:pane_current_path}"
+        set -g @catppuccin_date_time_text "%H:%M"
+        '';
+    }
     {
       plugin = tmuxPlugins.resurrect;
       extraConfig = ''
@@ -243,8 +243,10 @@
           pyright.enable = true;
           sqls.enable = true;
           jsonls.enable = true;
+          rustanalyzer.enable = true;
         };
       };
+# lint
       lint = {
         enable = true;
         lintersByFt = 
@@ -253,7 +255,7 @@
           json = ["jsonlint"];
           markdown = ["vale"];
           python = ["pylint"];
-          rst = ["vale"];
+          rst = ["rustfmt"];
           dockerfile = ["hadolint"];
           terraform = ["tflint"];
         };
