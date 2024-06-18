@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-    ./hardware.nix
+      ./hardware.nix
       ./nix-ld.nix
     ];
 
@@ -107,6 +107,7 @@
   };
 
 # Enable the X11 windowing system.
+  services.xserver.enable = true;
   services = {
     displayManager.sddm.wayland.enable = true;
     displayManager.defaultSession = "plasma";
@@ -263,11 +264,11 @@
     user = "niklas";
     dataDir = "/home/niklas/Documents";    # Default folder for new synced folders
 # Folder for Syncthing's settings and keys 
-    configDir = "/home/niklas/Documents/.config/syncthing";   
+      configDir = "/home/niklas/Documents/.config/syncthing";   
     settings.gui = {
-        user = "username";
-        password = "password";
-      };
+      user = "username";
+      password = "password";
+    };
   };
 
 # Some programs need SUID wrappers, can be configured further or are
@@ -285,11 +286,11 @@
   networking.firewall.allowedTCPPorts = [ 8384 22000 ];
   networking.firewall.allowedUDPPorts = [ 22000 21027 ];
   networking.firewall.allowedTCPPortRanges = [ 
-      { from = 1714; to = 1764; } # KDE Connect
-    ];  
+  { from = 1714; to = 1764; } # KDE Connect
+  ];  
   networking.firewall.allowedUDPPortRanges = [ 
-      { from = 1714; to = 1764; } # KDE Connect
-    ]; 
+  { from = 1714; to = 1764; } # KDE Connect
+  ]; 
 # Or disable the firewall altogether.
 # networking.firewall.enable = false;
 
