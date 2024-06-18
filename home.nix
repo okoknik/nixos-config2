@@ -243,7 +243,7 @@
           pyright.enable = true;
           sqls.enable = true;
           jsonls.enable = true;
-          rustanalyzer.enable = true;
+          rust-analyzer.enable = true;
         };
       };
 # lint
