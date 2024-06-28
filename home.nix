@@ -41,7 +41,7 @@
       dnsutils  # `dig` + `nslookup`
       nmap # A utility for network discovery and security auditing
       mtr # A network diagnostic tool
-
+      openssl
 # utils
       tree
       fzf
