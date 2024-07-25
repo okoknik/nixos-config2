@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -194,7 +194,7 @@
 ### Auto-upgrade
   system.autoUpgrade = {
     enable = true;
-    flake = inputs.self.outPath;
+    flake = "github:okoknik/nixos-config2";
     flags = [
     "--update-input"
     "nixpkgs"
