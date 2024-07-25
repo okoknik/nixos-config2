@@ -267,8 +267,10 @@
       lsp-format.enable = true;
       treesitter = {
         enable = true;
-        ensureInstalled = "all";
-        indent = true;
+        settings = {
+          ensure_installed = "all";
+          indent.enable = true;
+          };
         nixGrammars = true;
       };
       telescope = {
