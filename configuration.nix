@@ -195,11 +195,8 @@
   systemd.services.auto-update = {
     enable = true;
     wantedBy = ["shutdown.target"]; # runs on shutdown
-    unitConfig = {
-      Before = "shutdown.target";
-      DefaultDependencies="no";
-      Description = "Auto-update user service, runs ~/nixos-config2/update.sh";
-    };
+    before = ["shutdown.target"];
+    description = "Auto-update user service, runs ~/nixos-config2/update.sh";
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "~/nixos-config2/update.sh";
