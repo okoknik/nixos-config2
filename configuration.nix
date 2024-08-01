@@ -199,7 +199,7 @@
     description = "Auto-update user service, runs ~/nixos-config2/update.sh";
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "~/nixos-config2/update.sh";
+      ExecStart = "/root/nixos-config2/update.sh";
       TimeoutStartSec=0;
 
       };
