@@ -191,18 +191,29 @@
     };
   };
 
-### Auto-upgrade
-  system.autoUpgrade = {
-    enable = true;
-    flake = "github:okoknik/nixos-config2";
-    flags = [
-    "--update-input"
-    "nixpkgs"
-    "-L" # print build logs
-  ];
-  dates = "02:00";
-  randomizedDelaySec = "45min";
-};
+### Auto-upgrade via systemd user service
+  systemd.user.services.auto-update = {
+    before = ["shutdown.target"];
+    wantedBy = ["shutdown.target"]; # runs on shutdown
+    description = "Auto-update user service, runs ~/nixos-config2/update.sh";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "~/nixos-config2/update.sh";
+
+      };
+    };
+
+  #  system.autoUpgrade = {
+  #    enable = true;
+  #    flake = "github:okoknik/nixos-config2";
+  #    flags = [
+  #    "--update-input"
+  #    "nixpkgs"
+  #    "-L" # print build logs
+  #  ];
+  #  dates = "02:00";
+  #  randomizedDelaySec = "45min";
+  #};
   
 # make electron apps use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
