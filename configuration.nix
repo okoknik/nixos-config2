@@ -196,8 +196,8 @@
     enable = true;
     wantedBy = ["shutdown.target"]; # runs on shutdown
     unitConfig = {
-      Before = ["shutdown.target"];
-      #DefaultDependencies="no";
+      Before = "shutdown.target";
+      DefaultDependencies="no";
       Description = "Auto-update user service, runs ~/nixos-config2/update.sh";
     };
     serviceConfig = {
