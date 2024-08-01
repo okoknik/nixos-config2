@@ -192,7 +192,7 @@
   };
 
 ### Auto-upgrade via systemd user service
-  systemd.user.services.auto-update = {
+  systemd.services.auto-update = {
     enable = true;
     wantedBy = ["default.target"]; # runs on shutdown
     before = ["shutdown.target"];
