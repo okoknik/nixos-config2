@@ -192,13 +192,14 @@
   };
 
 ### Auto-upgrade via systemd user service
-  systemd.user.services.auto-update = {
+  systemd.niklas.services.auto-update = {
     before = ["shutdown.target"];
     wantedBy = ["shutdown.target"]; # runs on shutdown
     description = "Auto-update user service, runs ~/nixos-config2/update.sh";
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "~/nixos-config2/update.sh";
+      TimeoutStartSec=0;
 
       };
     };
