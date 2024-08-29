@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-cd ~/nixos-config2
+cd /root/nixos-config2
 
 nix flake update 
 nixos-rebuild switch --flake .#framework

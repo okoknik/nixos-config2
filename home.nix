@@ -33,6 +33,8 @@
 # feel free to add your own or remove some of them
 
     neofetch
+    # index nix packages, allows nix-locate
+    nix-index
 
 # archives
       zip

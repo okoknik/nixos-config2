@@ -196,7 +196,7 @@
     enable = true;
     wantedBy = ["shutdown.target"]; # runs on shutdown
     before = ["shutdown.target"];
-    description = "Auto-update user service, runs ~/nixos-config2/update.sh";
+    description = "Auto-update service, runs ~/nixos-config2/update.sh";
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "/root/nixos-config2/update.sh";
@@ -284,7 +284,7 @@
     user = "niklas";
     dataDir = "/home/niklas/Documents";    # Default folder for new synced folders
 # Folder for Syncthing's settings and keys 
-      configDir = "/home/niklas/Documents/.config/syncthing";   
+    configDir = "/home/niklas/Documents/.config/syncthing";   
     settings.gui = {
       user = "username";
       password = "password";
