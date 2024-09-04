@@ -9,7 +9,7 @@
     # There are many ways to reference flake inputs.
     # The most widely used is `github:owner/name/reference`,
     # which represents the GitHub repository URL + branch/commit-id/tag.
-
+    
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -20,13 +20,15 @@
     # inputs.nixpkgs.follows = "nixpkgs";
     #}; 
     impermanence.url = "github:nix-community/impermanence";
+    # neovim
+    nvim-nix.url = "github:okoknik/nvim-nix-config";
   };
 
   # parameters in function `outputs` are defined in `inputs` and
   # can be referenced by their names. 
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
-  outputs = { self, nixpkgs, home-manager, impermanence, ... }@inputs: { # insert nixvim here
+  outputs = { self, nixpkgs, home-manager, impermanence, nvim-nix, ... }@inputs: { # insert nixvim here
     nixosConfigurations = {
       "framework" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -43,6 +45,9 @@
             #   ];
           }
           impermanence.nixosModules.impermanence
+        ];
+        overlays = [
+          nvim-nix.overlays.default
         ];
       };
     };
