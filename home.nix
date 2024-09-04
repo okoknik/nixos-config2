@@ -140,6 +140,11 @@
 # neovim
 programs.nixvim = {
     enable = true;
+    plugins = {
+      lualine = {
+        enable = true;
+        globalstatus = true;
+      };
 # language servers
       lsp = {
         enable = true;
@@ -185,6 +190,7 @@ programs.nixvim = {
     luasnip.enable = true;
     whichkey.enable = true;
   };
+};
 
 # starship - an customizable prompt for any shell
   programs.starship = {
