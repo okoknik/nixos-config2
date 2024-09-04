@@ -140,9 +140,11 @@
 # neovim
   programs.neovim = {
   enable = true;
-  plugins = {
-   plugin = pkgs.vimPlugins.rustaceanvim;
-  }
+  plugins = [
+   pkgs.vimPlugins.rustaceanvim;
+   pkgs.vimPlugins.clang;
+  ]
+
   };
   
 
