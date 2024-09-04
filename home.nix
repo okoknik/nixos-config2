@@ -145,6 +145,8 @@ programs.nixvim = {
         enable = true;
         globalstatus = true;
       };
+    };
+  };
 
 # starship - an customizable prompt for any shell
   programs.starship = {
