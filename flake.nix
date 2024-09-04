@@ -17,7 +17,7 @@
     };
      nixvim = {
       url = "github:nix-community/nixvim";
-     inputs.nixpkgs.follows = "nixpkgs";
+     #inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
   };
