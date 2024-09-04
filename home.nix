@@ -143,7 +143,7 @@
   plugins = [
    pkgs.vimPlugins.rustaceanvim
    pkgs.vimPlugins.clang
-  ]
+  ];
 
   };
   
