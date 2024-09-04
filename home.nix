@@ -181,7 +181,8 @@ programs.nixvim = {
       treesitter = {
         enable = true;
         settings = {
-          ensure_installed = [ "rust" "python" "javascript" "typescript" "html" ];
+          ensure_installed = [ "rust" ];
+          highlight.enable = true;
           indent.enable = true;
           };
       };
