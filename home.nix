@@ -138,13 +138,13 @@
   };
 
 # neovim
-  programs.neovim = {
-  enable = true;
-  plugins = [
-   pkgs.vimPlugins.rustaceanvim
-  ];
+  #programs.neovim = {
+  #enable = true;
+  #plugins = [
+  # pkgs.vimPlugins.rustaceanvim
+  #];
 
-  };
+  #};
   
 
 # starship - an customizable prompt for any shell
