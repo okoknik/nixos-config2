@@ -142,7 +142,6 @@
   enable = true;
   plugins = [
    pkgs.vimPlugins.rustaceanvim
-   pkgs.vimPlugins.clang_complete
   ];
 
   };
