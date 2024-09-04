@@ -29,6 +29,9 @@
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
   outputs = { self, nixpkgs, home-manager, impermanence, nvim-nix, ... }@inputs: { # insert nixvim here
+       overlays = [
+          nvim-nix.overlays.default
+        ];
     nixosConfigurations = {
       "framework" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -46,9 +49,7 @@
           }
           impermanence.nixosModules.impermanence
         ];
-        overlays = [
-          nvim-nix.overlays.default
-        ];
+     
       };
     };
   };
