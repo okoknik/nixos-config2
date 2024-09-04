@@ -85,8 +85,6 @@
       winetricks  
 # clipboard utility for neovim
       wl-clipboard
-# neovim
-      nvim-pkg
       ];
 
 

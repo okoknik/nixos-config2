@@ -167,6 +167,7 @@
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" ];
       packages = with pkgs; [
+        nvim-pkg
       ];
     };
   };
