@@ -85,8 +85,6 @@
       winetricks  
 # clipboard utility for neovim
       wl-clipboard
-# neovim
-      nvim-pkg
       ];
 
 
@@ -140,14 +138,53 @@
   };
 
 # neovim
-  #programs.neovim = {
-  #enable = true;
-  #plugins = [
-  # pkgs.vimPlugins.rustaceanvim
-  #];
-
-  #};
-  
+programs.nixvim = {
+    enable = true;
+# language servers
+      lsp = {
+        enable = true;
+        servers = {
+          dockerls.enable = true;
+          html.enable = true;
+          nixd.enable = true;
+          pyright.enable = true;
+          sqls.enable = true;
+          jsonls.enable = true;
+          rust-analyzer = {
+            enable = true;
+            installCargo = true;
+            installRustc = true;
+          };
+        };
+      };
+# lint
+      lint = {
+        enable = true;
+        lintersByFt =
+        {
+          text = ["vale"];
+          json = ["jsonlint"];
+          markdown = ["vale"];
+          python = ["pylint"];
+          rst = ["clippy"];
+          dockerfile = ["hadolint"];
+          terraform = ["tflint"];
+        };
+      };
+# formatting
+      lsp-format.enable = true;
+      treesitter = {
+        enable = true;
+        settings = {
+          ensure_installed = [ "rust" "python" "javascript" "typescript" "html" ];
+          indent.enable = true;
+          };
+      };
+# snippets
+    friendly-snippets.enable = true;
+    luasnip.enable = true;
+    whichkey.enable = true;
+  };
 
 # starship - an customizable prompt for any shell
   programs.starship = {

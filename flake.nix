@@ -15,13 +15,11 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixvim = {
-    #  url = "github:nix-community/nixvim";
-    # inputs.nixpkgs.follows = "nixpkgs";
-    #}; 
+     nixvim = {
+      url = "github:nix-community/nixvim";
+     inputs.nixpkgs.follows = "nixpkgs";
+    };
     impermanence.url = "github:nix-community/impermanence";
-    # neovim
-    nvim-nix.url = "github:okoknik/nvim-nix-config";
   };
 
   # parameters in function `outputs` are defined in `inputs` and
@@ -29,9 +27,7 @@
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
   outputs = { self, nixpkgs, home-manager, impermanence, nvim-nix, ... }@inputs: { # insert nixvim here
-       overlays = [
-          nvim-nix.overlays.default
-        ];
+
     nixosConfigurations = {
       "framework" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -43,9 +39,9 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.niklas = import ./home.nix;
-            #home-manager.sharedModules = [
-            #     nixvim.homeManagerModules.nixvim
-            #   ];
+            home-manager.sharedModules = [
+                 nixvim.homeManagerModules.nixvim
+               ];
           }
           impermanence.nixosModules.impermanence
         ];
