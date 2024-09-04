@@ -81,7 +81,9 @@
 
 # lutris gaming
       lutris 
-      winetricks    
+      winetricks  
+# clipboard utility for neovim
+      wl-clipboard
       ];
 
 
