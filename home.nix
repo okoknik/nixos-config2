@@ -146,13 +146,6 @@ programs.nixvim = {
         globalstatus = true;
       };
 
-# snippets
-    friendly-snippets.enable = true;
-    luasnip.enable = true;
-    which-key.enable = true;
-  };
-};
-
 # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;
