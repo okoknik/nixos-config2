@@ -140,12 +140,6 @@
 # neovim
 programs.nixvim = {
     enable = true;
-    plugins = {
-      lualine = {
-        enable = true;
-        globalstatus = true;
-      };
-    };
   };
 
 # starship - an customizable prompt for any shell
