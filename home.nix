@@ -188,7 +188,7 @@ programs.nixvim = {
 # snippets
     friendly-snippets.enable = true;
     luasnip.enable = true;
-    whichkey.enable = true;
+    which-key.enable = true;
   };
 };
 
