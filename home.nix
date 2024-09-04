@@ -140,9 +140,6 @@
 # neovim
 programs.nixvim = {
     enable = true;
-    plugins = {
-      luasnip.enable = true;
-      };
   };
 
 # starship - an customizable prompt for any shell
