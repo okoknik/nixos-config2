@@ -138,9 +138,9 @@
   };
 
 # neovim
-programs.nixvim = {
-    enable = true;
-  };
+programs.neovim = {
+  enable = true;
+}
 
 # starship - an customizable prompt for any shell
   programs.starship = {
