@@ -134,6 +134,7 @@
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       ms-python.python
+      rust-lang.rust-analyzer
     ];
   };
 
