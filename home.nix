@@ -147,7 +147,8 @@ programs.neovim = {
 	pkgs.vimPlugins.luasnip    
 	pkgs.vimPlugins.friendly-snippets
  pkgs.vimPlugins.telescope-nvim
-  pkgs.vimPlugins.lz-n
+pkgs.vimPlugins.catppuccin-nvim
+   pkgs.vimPlugins.nvim-treesitter
  ];
 };
 
