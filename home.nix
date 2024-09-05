@@ -143,13 +143,23 @@ programs.neovim = {
   enable = true;
   defaultEditor = true;
   plugins = [
-	pkgs.vimPlugins.lualine-nvim
-	pkgs.vimPlugins.luasnip    
+# status line
+    pkgs.vimPlugins.lualine-nvim
+# snippets
+    pkgs.vimPlugins.luasnip    
 	pkgs.vimPlugins.friendly-snippets
- pkgs.vimPlugins.telescope-nvim
-pkgs.vimPlugins.catppuccin-nvim
-   pkgs.vimPlugins.nvim-treesitter
-  pkgs.vimPlugins.mason-nvim
+# search
+    pkgs.vimPlugins.telescope-nvim
+# colors 
+    pkgs.vimPlugins.catppuccin-nvim
+    pkgs.vimPlugins.nvim-treesitter
+# lsp
+    pkgs.vimPlugins.mason-nvim
+    pkgs.vimPlugins.nvim-lspconfig
+# indenting
+    pkgs.vimPlugins.conform-nvim
+# completion
+    pkgs.vimPlugins.nvim-cmp
  ];
 };
 
