@@ -141,6 +141,14 @@
 # neovim
 programs.neovim = {
   enable = true;
+  defaultEditor = true;
+  plugins = [
+	pkgs.vimPlugins.lualine-nvim
+	pkgs.vimPlugins.luasnip    
+	pkgs.vimPlugins.friendly-snippets
+ pkgs.vimPlugins.telescope-nvim
+  pkgs.vimPlugins.lz-n
+ ];
 };
 
 # starship - an customizable prompt for any shell
