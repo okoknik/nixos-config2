@@ -156,6 +156,8 @@ programs.neovim = {
 # lsp
     pkgs.vimPlugins.mason-nvim
     pkgs.vimPlugins.nvim-lspconfig
+# rust
+    pkgs.vimPlugins.rustaceanvim
 # indenting
     pkgs.vimPlugins.conform-nvim
 # completion
