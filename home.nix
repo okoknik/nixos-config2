@@ -149,6 +149,7 @@ programs.neovim = {
  pkgs.vimPlugins.telescope-nvim
 pkgs.vimPlugins.catppuccin-nvim
    pkgs.vimPlugins.nvim-treesitter
+  pkgs.vimPlugins.mason-nvim
  ];
 };
 
