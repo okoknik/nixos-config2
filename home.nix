@@ -152,7 +152,7 @@ programs.neovim = {
     pkgs.vimPlugins.telescope-nvim
 # colors 
     pkgs.vimPlugins.catppuccin-nvim
-    pkgs.vimPlugins.nvim-treesitter
+    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
 # lsp
     pkgs.vimPlugins.mason-nvim
     pkgs.vimPlugins.nvim-lspconfig
