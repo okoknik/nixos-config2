@@ -164,6 +164,8 @@ programs.neovim = {
     pkgs.vimPlugins.nvim-cmp
 # auto-closing parentheses
     pkgs.vimPlugins.autoclose-nvim
+# git
+    pkgs.vimPlugins.gitsigns-nvim
  ];
 };
 
