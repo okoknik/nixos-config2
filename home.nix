@@ -138,39 +138,12 @@
     ];
   };
 
-# neovim
-programs.neovim = {
-  enable = true;
-  defaultEditor = true;
-  plugins = [
-# status line
-    pkgs.vimPlugins.lualine-nvim
-# snippets
-    pkgs.vimPlugins.luasnip    
-	pkgs.vimPlugins.friendly-snippets
-# search
-    pkgs.vimPlugins.telescope-nvim
-# colors 
-    pkgs.vimPlugins.catppuccin-nvim
-    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-# lsp
-    pkgs.vimPlugins.mason-nvim
-    pkgs.vimPlugins.nvim-lspconfig
-# rust
-    pkgs.vimPlugins.rustaceanvim
-# indenting
-    pkgs.vimPlugins.conform-nvim
-# completion
-    pkgs.vimPlugins.nvim-cmp
-# auto-closing parentheses
-    pkgs.vimPlugins.autoclose-nvim
-# git
-    pkgs.vimPlugins.gitsigns-nvim
- ];
-};
 
 # helix - rust neovim alternative
-  programs.helix.enable = true;
+  programs.helix = {
+      enable = true;
+      defaultEditor = true;
+      };
 
 # starship - an customizable prompt for any shell
   programs.starship = {
