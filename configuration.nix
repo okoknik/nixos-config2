@@ -278,18 +278,6 @@
     SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0xa0e0", ATTR{power/control}="on"
     '';
 
-### Syncthing
-  services.syncthing = {
-    enable = true;
-    user = "niklas";
-    dataDir = "/home/niklas/Documents";    # Default folder for new synced folders
-# Folder for Syncthing's settings and keys 
-    configDir = "/home/niklas/Documents/.config/syncthing";   
-    settings.gui = {
-      user = "username";
-      password = "password";
-    };
-  };
 
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.
