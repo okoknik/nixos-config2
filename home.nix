@@ -158,15 +158,10 @@
   };
 
 # Syncthing
-  programs.syncthing = {
+  services.syncthing = {
     enable = true;
-    user = "niklas";
-# Folder for Syncthing's settings and keys 
-    settings.gui = {
-      user = "username";
-      password = "password";
-    };
-  };
+    tray = true;
+};
 # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
     enable = true;
