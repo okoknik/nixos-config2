@@ -158,7 +158,7 @@
   };
 
 # Syncthing
-  services.syncthing = {
+  programs.syncthing = {
     enable = true;
     user = "niklas";
 # Folder for Syncthing's settings and keys 
