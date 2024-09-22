@@ -160,7 +160,7 @@
 # Syncthing
   services.syncthing = {
     enable = true;
-    tray = true;
+    tray.enable = true;
 };
 # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
