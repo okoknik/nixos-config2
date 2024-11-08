@@ -179,6 +179,7 @@
 #    discover
     git
       (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
+      chromium
   ];
 
   xdg = {
