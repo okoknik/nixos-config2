@@ -72,6 +72,7 @@
       thunderbird
       steam
       pandoc
+      tidal-hifi
 # latex
       texstudio
       texliveFull
