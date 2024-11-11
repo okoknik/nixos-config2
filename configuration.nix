@@ -53,7 +53,6 @@
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;
-    enableNvidia = true;
     storageDriver = "btrfs";
 
     rootless = {
@@ -68,8 +67,8 @@
       };
     };
   };
-
-
+# enable GPU support in Docker
+  hardware.nvidia-container-toolkit.enable = true;
 # optimize nix-store
   nix.settings.auto-optimise-store = true;
 
@@ -126,7 +125,7 @@
 # fonts
   fonts.packages = with pkgs; [
     noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       liberation_ttf
       fira-code
