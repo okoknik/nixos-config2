@@ -177,8 +177,9 @@
 #   wget
 #    discover
     git
-      (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
-      chromium
+    # (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
+    chromium
+    firefox
   ];
 
   xdg = {
