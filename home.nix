@@ -86,6 +86,8 @@
       winetricks  
 # clipboard utility for neovim
       wl-clipboard
+# alternative tmux
+      zellij
       ];
 
 
