@@ -16,6 +16,8 @@
 
 # plymouth
 #boot.plymouth.enable = true;
+# ios
+  services.usbmuxd.enable = true;
 
 # firmware
   services.fwupd.enable = true;

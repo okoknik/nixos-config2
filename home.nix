@@ -90,6 +90,9 @@
       wl-clipboard
 # alternative tmux
       zellij
+# mounting ios
+      libimobiledevice
+      ifuse
       ];
 
 
