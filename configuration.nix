@@ -46,7 +46,7 @@
   ];
 
 # add latest kernel
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_stable;
 # Ollama
   services.ollama = {
     enable = true;
