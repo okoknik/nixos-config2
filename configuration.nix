@@ -140,7 +140,7 @@
       mplus-outline-fonts.githubRelease
       dina-font
       proggyfonts
-      nerdfonts
+      nerd-fonts
   ];
 
 # Enable CUPS to print documents.
