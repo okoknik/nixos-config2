@@ -46,24 +46,29 @@
   ];
 
 # add latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_stable;
+  boot.kernelPackages = pkgs.linuxPackages;
 # Ollama
   services.ollama = {
     enable = true;
   };
 # Docker
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = false;
-    storageDriver = "btrfs";
-
-    rootless = {
+  virtualisation = {
+    podman = {
       enable = true;
-      setSocketVariable = false;
-      daemon.settings = {
-        runtimes = {
-          nvidia = {
-            path = "${pkgs.nvidia-docker}/bin/nvidia-container-runtime";
+      };
+    docker = {
+      enable = true;
+      enableOnBoot = false;
+      storageDriver = "btrfs";
+
+      rootless = {
+        enable = true;
+        setSocketVariable = false;
+        daemon.settings = {
+          runtimes = {
+            nvidia = {
+              path = "${pkgs.nvidia-docker}/bin/nvidia-container-runtime";
+            };
           };
         };
       };

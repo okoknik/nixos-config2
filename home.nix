@@ -93,6 +93,8 @@
 # mounting ios
       libimobiledevice
       ifuse
+# dev-tool
+      toolbox
       ];
 
 
