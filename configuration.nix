@@ -82,6 +82,9 @@
 # become trusted user for binary cache
   nix.settings.trusted-users = [ "@wheel" ];
 
+# Needed for desktop environments to detect/manage display brightness
+  hardware.sensor.iio.enable = lib.mkDefault true;
+
 # garbage collection
   nix.gc = {
     automatic = true;
@@ -92,10 +95,10 @@
   networking.hostName = "framework"; # Define your hostname.
 # Pick only one of the below networking options.
 # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
 # allow flakes
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -273,7 +276,7 @@
         enable = true;
         enableOffloadCmd = true;
       };
-# Make sure to use the correct Bus ID values for your system!
+# Make sure to use the correct Bus ID values for your system! Currently upper right
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };

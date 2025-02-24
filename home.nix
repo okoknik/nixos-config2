@@ -95,6 +95,8 @@
       ifuse
 # dev-tool
       toolbox
+# file-sharing (airdrop like)
+      localsend
       ];
 
 
