@@ -90,6 +90,8 @@
       wl-clipboard
 # alternative tmux
       zellij
+# terminal file manager
+      yazi
 # mounting ios
       libimobiledevice
       ifuse
