@@ -15,10 +15,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #  nixvim = {
-    #   url = "github:nix-community/nixvim";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     impermanence.url = "github:nix-community/impermanence";
   };
 
@@ -41,6 +38,7 @@
             home-manager.users.niklas = import ./home.nix;
           }
           impermanence.nixosModules.impermanence
+	  nixos-hardware.nixosModules.framework-amd-ai-300-series
         ];
      
       };
