@@ -75,7 +75,7 @@
     # };
   };
 # enable GPU support in Docker
-  # hardware.nvidia-container-toolkit.enable = true;
+# hardware.nvidia-container-toolkit.enable = true;
 # optimize nix-store
   nix.settings.auto-optimise-store = true;
 
