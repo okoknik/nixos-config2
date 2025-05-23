@@ -23,7 +23,7 @@
   # can be referenced by their names. 
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
-  outputs = { self, nixpkgs, home-manager, impermanence, nixos-hardware, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, impermanence, nixos-hardware, ... }@inputs: {
 
     nixosConfigurations = {
       "framework" = nixpkgs.lib.nixosSystem {
