@@ -95,63 +95,9 @@
 # mounting ios
       libimobiledevice
       ifuse
-# dev-tool
-      toolbox
 # file-sharing (airdrop like)
       localsend
       ];
-
-
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-    baseIndex = 1;
-    plugins = with pkgs; [
-    {
-      plugin = tmuxPlugins.cpu;
-    }
-    {
-      plugin = tmuxPlugins.catppuccin;
-      extraConfig = ''
-        set -g @catppuccin_window_left_separator ""
-        set -g @catppuccin_window_right_separator " "
-        set -g @catppuccin_window_middle_separator " █"
-        set -g @catppuccin_window_number_position "right"
-        set -g @catppuccin_window_default_fill "number"
-        set -g @catppuccin_window_default_text "#W"
-        set -g @catppuccin_window_current_fill "number"
-        set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
-        set -g @catppuccin_status_modules_right "directory cpu date_time"
-        set -g @catppuccin_status_modules_left "session"
-        set -g @catppuccin_status_left_separator  " "
-        set -g @catppuccin_status_right_separator " "
-        set -g @catppuccin_status_right_separator_inverse "no"
-        set -g @catppuccin_status_fill "icon"
-        set -g @catppuccin_status_connect_separator "no"
-        set -g @catppuccin_directory_text "#{b:pane_current_path}"
-        set -g @catppuccin_date_time_text "%H:%M"
-        '';
-    }
-    {
-      plugin = tmuxPlugins.resurrect;
-      extraConfig = ''
-        set -g @resurrect-strategy-vim 'session'
-        set -g @resurrect-strategy-nvim 'session'
-        set -g @resurrect-capture-pane-contents 'on'
-        '';
-    }
-    ];
-
-  };
-
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      ms-python.python
-      rust-lang.rust-analyzer
-    ];
-  };
-
 
 # helix - rust neovim alternative
   programs.helix = {

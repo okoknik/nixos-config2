@@ -46,7 +46,7 @@
 #  ];
 
 # add latest kernel
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 # Ollama
   services.ollama = {
     enable = true;
@@ -56,26 +56,26 @@
     podman = {
       enable = true;
       };
-    docker = {
-      enable = true;
-      enableOnBoot = false;
-      storageDriver = "btrfs";
+    # docker = {
+    #   enable = true;
+    #   enableOnBoot = false;
+    #   storageDriver = "btrfs";
 
-      rootless = {
-        enable = true;
-        setSocketVariable = false;
-        daemon.settings = {
-          runtimes = {
-            nvidia = {
-              path = "${pkgs.nvidia-docker}/bin/nvidia-container-runtime";
-            };
-          };
-        };
-      };
-    };
+    #   rootless = {
+    #     enable = true;
+    #     setSocketVariable = false;
+    #     daemon.settings = {
+    #       runtimes = {
+    #         nvidia = {
+    #           path = "${pkgs.nvidia-docker}/bin/nvidia-container-runtime";
+    #         };
+    #       };
+    #     };
+    #   };
+    # };
   };
 # enable GPU support in Docker
-  hardware.nvidia-container-toolkit.enable = true;
+  # hardware.nvidia-container-toolkit.enable = true;
 # optimize nix-store
   nix.settings.auto-optimise-store = true;
 
@@ -202,37 +202,12 @@
     };
   };
 
-### Auto-upgrade via systemd user service
-  systemd.services.auto-update = {
-    enable = true;
-    wantedBy = ["shutdown.target"]; # runs on shutdown
-    before = ["shutdown.target"];
-    description = "Auto-update service, runs ~/nixos-config2/update.sh";
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "/root/nixos-config2/update.sh";
-      TimeoutStartSec=0;
 
-      };
-    };
-
-  #  system.autoUpgrade = {
-  #    enable = true;
-  #    flake = "github:okoknik/nixos-config2";
-  #    flags = [
-  #    "--update-input"
-  #    "nixpkgs"
-  #    "-L" # print build logs
-  #  ];
-  #  dates = "02:00";
-  #  randomizedDelaySec = "45min";
-  #};
-  
 # make electron apps use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
 ### THUNDERBOLT
-  services.hardware.bolt.enable = true;
+  # services.hardware.bolt.enable = true;
 
 
 ### GRAPHICS
@@ -243,44 +218,44 @@
   };
 
 # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+#   services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.nvidia = {
+#   hardware.nvidia = {
 
-# Modesetting is required.
-    modesetting.enable = true;
+# # Modesetting is required.
+#     modesetting.enable = true;
 
-# Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-# Enable this if you have graphical corruption issues or application crashes after waking
-# up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
-# of just the bare essentials.
-    powerManagement.enable = false;
+# # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+# # Enable this if you have graphical corruption issues or application crashes after waking
+# # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+# # of just the bare essentials.
+#     powerManagement.enable = false;
 
-# Fine-grained power management. Turns off GPU when not in use.
-# Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
+# # Fine-grained power management. Turns off GPU when not in use.
+# # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+#     powerManagement.finegrained = false;
 
-# Use the NVidia open source kernel module
-    open = false;
+# # Use the NVidia open source kernel module
+#     open = false;
 
-# Enable the Nvidia settings menu,
-# accessible via `nvidia-settings`.
-    nvidiaSettings = true;
+# # Enable the Nvidia settings menu,
+# # accessible via `nvidia-settings`.
+#     nvidiaSettings = true;
 
-# Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+# # Optionally, you may need to select the appropriate driver version for your specific GPU.
+#     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-# eGPU
-    prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-# Make sure to use the correct Bus ID values for your system! Currently upper right
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-  };
+# # eGPU
+#     prime = {
+#       offload = {
+#         enable = true;
+#         enableOffloadCmd = true;
+#       };
+# # Make sure to use the correct Bus ID values for your system! Currently upper right
+#       intelBusId = "PCI:0:2:0";
+#       nvidiaBusId = "PCI:1:0:0";
+#     };
+#   };
 
 ### Audio fixes
 #  services.udev.extraRules = ''
