@@ -29,14 +29,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelParams = [
+#   boot.kernelParams = [
 # For Power consumption
 #    "mem_sleep_default=deep"
 # Workaround iGPU hangs
 #      "i915.enable_psr=1"
 #      "nvme.noacpi=1"
-  ];
-
+#   ];
+  # Use AMD GPU drivers
+  boot.initrd.kernelModules = [ "amdgpu" ];
 #  boot.blacklistedKernelModules = [ 
 # This enables the brightness and airplane mode keys to work
 #    "hid-sensor-hub"
