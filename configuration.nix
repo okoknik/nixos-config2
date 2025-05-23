@@ -31,19 +31,19 @@
 
   boot.kernelParams = [
 # For Power consumption
-    "mem_sleep_default=deep"
+#    "mem_sleep_default=deep"
 # Workaround iGPU hangs
-      "i915.enable_psr=1"
-      "nvme.noacpi=1"
+#      "i915.enable_psr=1"
+#      "nvme.noacpi=1"
   ];
 
-  boot.blacklistedKernelModules = [ 
+#  boot.blacklistedKernelModules = [ 
 # This enables the brightness and airplane mode keys to work
-    "hid-sensor-hub"
+#    "hid-sensor-hub"
 # This fixes controller crashes during sleep
-    "cros_ec_lpcs"
-    "cros-usbpd-charger"
-  ];
+#    "cros_ec_lpcs"
+#    "cros-usbpd-charger"
+#  ];
 
 # add latest kernel
   boot.kernelPackages = pkgs.linuxPackages;
@@ -83,7 +83,7 @@
   nix.settings.trusted-users = [ "@wheel" ];
 
 # Needed for desktop environments to detect/manage display brightness
-  hardware.sensor.iio.enable = lib.mkDefault true;
+#  hardware.sensor.iio.enable = lib.mkDefault true;
 
 # garbage collection
   nix.gc = {
@@ -283,11 +283,11 @@
   };
 
 ### Audio fixes
-  services.udev.extraRules = ''
+#  services.udev.extraRules = ''
 # Fix headphone noise when on powersave
 # https://community.frame.work/t/headphone-jack-intermittent-noise/5246/55
-    SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0xa0e0", ATTR{power/control}="on"
-    '';
+#    SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0xa0e0", ATTR{power/control}="on"
+#    '';
 
 
 # Some programs need SUID wrappers, can be configured further or are
