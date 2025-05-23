@@ -118,6 +118,7 @@
 
 # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
   services = {
     displayManager.sddm.wayland.enable = true;
     displayManager.defaultSession = "plasma";
