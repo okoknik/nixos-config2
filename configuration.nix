@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware.nix
-      ./nix-ld.nix
+      # ./nix-ld.nix
     ];
 
 # allow unfree packages
