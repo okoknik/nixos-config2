@@ -41,8 +41,9 @@
     podman = {
       enable = true;
       };
+    };
 # enable NVIDIA GPU support in Podman
-hardware.nvidia-container-toolkit.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
 # optimize nix-store
   nix.settings.auto-optimise-store = true;
 
