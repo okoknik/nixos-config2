@@ -35,6 +35,7 @@
 # Ollama
   services.ollama = {
     enable = true;
+    acceleration = "rocm";
   };
 # Docker
   virtualisation = {
@@ -42,8 +43,6 @@
       enable = true;
       };
     };
-# enable NVIDIA GPU support in Podman
-  hardware.nvidia-container-toolkit.enable = true;
 # optimize nix-store
   nix.settings.auto-optimise-store = true;
 
