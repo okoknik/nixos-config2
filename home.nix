@@ -97,6 +97,8 @@
       ifuse
 # file-sharing (airdrop like)
       localsend
+# podman-compose
+      podman-compose
       ];
 
 # helix - rust neovim alternative
