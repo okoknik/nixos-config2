@@ -112,10 +112,9 @@
     enable = true;
 # custom settings
     settings = {
-      add_newline = false;
-      aws.disabled = true;
-      gcloud.disabled = true;
+      add_newline = true;
       line_break.disabled = true;
+      time.disabled=false;
     };
   };
 
